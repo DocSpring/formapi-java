@@ -12,12 +12,14 @@ import io.formapi.CreateSubmissionDataBatchV1;
 import io.formapi.CreateSubmissionDataRequestTokenResponse;
 import io.formapi.CreateSubmissionResponse;
 import io.formapi.Error;
+import java.io.File;
 import io.formapi.InvalidRequest;
 import io.formapi.Submission;
 import io.formapi.SubmissionBatch;
 import io.formapi.SubmissionBatchData;
 import io.formapi.SubmissionDataRequest;
 import io.formapi.Template;
+import io.formapi.Template1;
 import io.formapi.UpdateDataRequestResponse;
 import io.formapi.UpdateSubmissionDataRequestData;
 import org.junit.Before;
@@ -86,6 +88,19 @@ public class PdfApiTest {
     public void createDataRequestTokenTest() {
         String dataRequestId = null;
         // CreateSubmissionDataRequestTokenResponse response = api.createDataRequestToken(dataRequestId);
+
+        // TODO: test validations
+    }
+    /**
+     * Upload a new PDF template
+     *
+     * 
+     */
+    @Test
+    public void createTemplateTest() {
+        File templateDocument = null;
+        String templateName = null;
+        // Template1 response = api.createTemplate(templateDocument, templateName);
 
         // TODO: test validations
     }
@@ -172,6 +187,30 @@ public class PdfApiTest {
         String submissionBatchId = null;
         Boolean includeSubmissions = null;
         // SubmissionBatch response = api.getSubmissionBatch(submissionBatchId, includeSubmissions);
+
+        // TODO: test validations
+    }
+    /**
+     * Check the status of an uploaded template
+     *
+     * 
+     */
+    @Test
+    public void getTemplateTest() {
+        String templateId = null;
+        // Template response = api.getTemplate(templateId);
+
+        // TODO: test validations
+    }
+    /**
+     * Fetch the JSON schema for a template
+     *
+     * 
+     */
+    @Test
+    public void getTemplateSchemaTest() {
+        String templateId = null;
+        // Map<String, Object> response = api.getTemplateSchema(templateId);
 
         // TODO: test validations
     }

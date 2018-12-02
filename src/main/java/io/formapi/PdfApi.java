@@ -20,12 +20,14 @@ import io.formapi.CreateSubmissionDataBatchV1;
 import io.formapi.CreateSubmissionDataRequestTokenResponse;
 import io.formapi.CreateSubmissionResponse;
 import io.formapi.Error;
+import java.io.File;
 import io.formapi.InvalidRequest;
 import io.formapi.Submission;
 import io.formapi.SubmissionBatch;
 import io.formapi.SubmissionBatchData;
 import io.formapi.SubmissionDataRequest;
 import io.formapi.Template;
+import io.formapi.Template1;
 import io.formapi.UpdateDataRequestResponse;
 import io.formapi.UpdateSubmissionDataRequestData;
 
@@ -87,6 +89,19 @@ public interface PdfApi {
   @POST("data_requests/{data_request_id}/tokens")
   Call<CreateSubmissionDataRequestTokenResponse> createDataRequestToken(
     @retrofit2.http.Path("data_request_id") String dataRequestId
+  );
+
+  /**
+   * Upload a new PDF template
+   * 
+   * @param templateDocument  (required)
+   * @param templateName  (required)
+   * @return Call&lt;Template1&gt;
+   */
+  @retrofit2.http.Multipart
+  @POST("templates")
+  Call<Template1> createTemplate(
+    @retrofit2.http.Part("template[document]") MultipartBody.Part templateDocument, @retrofit2.http.Part("template[name]") String templateName
   );
 
   /**
@@ -169,6 +184,28 @@ public interface PdfApi {
   @GET("submissions/batches/{submission_batch_id}")
   Call<SubmissionBatch> getSubmissionBatch(
     @retrofit2.http.Path("submission_batch_id") String submissionBatchId, @retrofit2.http.Query("include_submissions") Boolean includeSubmissions
+  );
+
+  /**
+   * Check the status of an uploaded template
+   * 
+   * @param templateId  (required)
+   * @return Call&lt;Template&gt;
+   */
+  @GET("templates/{template_id}")
+  Call<Template> getTemplate(
+    @retrofit2.http.Path("template_id") String templateId
+  );
+
+  /**
+   * Fetch the JSON schema for a template
+   * 
+   * @param templateId  (required)
+   * @return Call&lt;Map&lt;String, Object&gt;&gt;
+   */
+  @GET("templates/{template_id}/schema")
+  Call<Map<String, Object>> getTemplateSchema(
+    @retrofit2.http.Path("template_id") String templateId
   );
 
   /**

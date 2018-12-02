@@ -26,7 +26,7 @@ After the client library is installed/deployed, you can use it in your Maven pro
 <dependency>
     <groupId>io.formapi</groupId>
     <artifactId>FormAPI</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <scope>compile</scope>
 </dependency>
 

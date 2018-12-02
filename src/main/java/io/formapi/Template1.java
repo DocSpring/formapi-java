@@ -24,14 +24,12 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * Template
+ * Template1
  */
 @javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-01T01:05:42.176+07:00[Asia/Bangkok]")
-public class Template {
+public class Template1 {
   /**
    * Gets or Sets expirationInterval
    */
@@ -129,15 +127,11 @@ public class Template {
   @SerializedName(SERIALIZED_NAME_ID)
   private String id = null;
 
-  public static final String SERIALIZED_NAME_PAGE_DIMENSIONS = "page_dimensions";
-  @SerializedName(SERIALIZED_NAME_PAGE_DIMENSIONS)
-  private List<List<BigDecimal>> pageDimensions = null;
-
   public static final String SERIALIZED_NAME_REDIRECT_URL = "redirect_url";
   @SerializedName(SERIALIZED_NAME_REDIRECT_URL)
   private String redirectUrl = null;
 
-  public Template expirationInterval(ExpirationIntervalEnum expirationInterval) {
+  public Template1 expirationInterval(ExpirationIntervalEnum expirationInterval) {
     this.expirationInterval = expirationInterval;
     return this;
   }
@@ -155,7 +149,7 @@ public class Template {
     this.expirationInterval = expirationInterval;
   }
 
-  public Template webhookUrl(String webhookUrl) {
+  public Template1 webhookUrl(String webhookUrl) {
     this.webhookUrl = webhookUrl;
     return this;
   }
@@ -173,7 +167,7 @@ public class Template {
     this.webhookUrl = webhookUrl;
   }
 
-  public Template expireAfter(BigDecimal expireAfter) {
+  public Template1 expireAfter(BigDecimal expireAfter) {
     this.expireAfter = expireAfter;
     return this;
   }
@@ -191,7 +185,7 @@ public class Template {
     this.expireAfter = expireAfter;
   }
 
-  public Template allowAdditionalProperties(Boolean allowAdditionalProperties) {
+  public Template1 allowAdditionalProperties(Boolean allowAdditionalProperties) {
     this.allowAdditionalProperties = allowAdditionalProperties;
     return this;
   }
@@ -209,7 +203,7 @@ public class Template {
     this.allowAdditionalProperties = allowAdditionalProperties;
   }
 
-  public Template publicSubmissions(Boolean publicSubmissions) {
+  public Template1 publicSubmissions(Boolean publicSubmissions) {
     this.publicSubmissions = publicSubmissions;
     return this;
   }
@@ -227,7 +221,7 @@ public class Template {
     this.publicSubmissions = publicSubmissions;
   }
 
-  public Template slackWebhookUrl(String slackWebhookUrl) {
+  public Template1 slackWebhookUrl(String slackWebhookUrl) {
     this.slackWebhookUrl = slackWebhookUrl;
     return this;
   }
@@ -245,7 +239,7 @@ public class Template {
     this.slackWebhookUrl = slackWebhookUrl;
   }
 
-  public Template blockchainTimestampVerification(Boolean blockchainTimestampVerification) {
+  public Template1 blockchainTimestampVerification(Boolean blockchainTimestampVerification) {
     this.blockchainTimestampVerification = blockchainTimestampVerification;
     return this;
   }
@@ -263,7 +257,7 @@ public class Template {
     this.blockchainTimestampVerification = blockchainTimestampVerification;
   }
 
-  public Template publicWebForm(Boolean publicWebForm) {
+  public Template1 publicWebForm(Boolean publicWebForm) {
     this.publicWebForm = publicWebForm;
     return this;
   }
@@ -281,7 +275,7 @@ public class Template {
     this.publicWebForm = publicWebForm;
   }
 
-  public Template expireSubmissions(Boolean expireSubmissions) {
+  public Template1 expireSubmissions(Boolean expireSubmissions) {
     this.expireSubmissions = expireSubmissions;
     return this;
   }
@@ -299,7 +293,7 @@ public class Template {
     this.expireSubmissions = expireSubmissions;
   }
 
-  public Template name(String name) {
+  public Template1 name(String name) {
     this.name = name;
     return this;
   }
@@ -317,7 +311,7 @@ public class Template {
     this.name = name;
   }
 
-  public Template templateType(String templateType) {
+  public Template1 templateType(String templateType) {
     this.templateType = templateType;
     return this;
   }
@@ -335,7 +329,7 @@ public class Template {
     this.templateType = templateType;
   }
 
-  public Template id(String id) {
+  public Template1 id(String id) {
     this.id = id;
     return this;
   }
@@ -353,33 +347,7 @@ public class Template {
     this.id = id;
   }
 
-  public Template pageDimensions(List<List<BigDecimal>> pageDimensions) {
-    this.pageDimensions = pageDimensions;
-    return this;
-  }
-
-  public Template addPageDimensionsItem(List<BigDecimal> pageDimensionsItem) {
-    if (this.pageDimensions == null) {
-      this.pageDimensions = new ArrayList<List<BigDecimal>>();
-    }
-    this.pageDimensions.add(pageDimensionsItem);
-    return this;
-  }
-
-   /**
-   * Get pageDimensions
-   * @return pageDimensions
-  **/
-  @ApiModelProperty(value = "")
-  public List<List<BigDecimal>> getPageDimensions() {
-    return pageDimensions;
-  }
-
-  public void setPageDimensions(List<List<BigDecimal>> pageDimensions) {
-    this.pageDimensions = pageDimensions;
-  }
-
-  public Template redirectUrl(String redirectUrl) {
+  public Template1 redirectUrl(String redirectUrl) {
     this.redirectUrl = redirectUrl;
     return this;
   }
@@ -406,33 +374,32 @@ public class Template {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Template template = (Template) o;
-    return Objects.equals(this.expirationInterval, template.expirationInterval) &&
-        Objects.equals(this.webhookUrl, template.webhookUrl) &&
-        Objects.equals(this.expireAfter, template.expireAfter) &&
-        Objects.equals(this.allowAdditionalProperties, template.allowAdditionalProperties) &&
-        Objects.equals(this.publicSubmissions, template.publicSubmissions) &&
-        Objects.equals(this.slackWebhookUrl, template.slackWebhookUrl) &&
-        Objects.equals(this.blockchainTimestampVerification, template.blockchainTimestampVerification) &&
-        Objects.equals(this.publicWebForm, template.publicWebForm) &&
-        Objects.equals(this.expireSubmissions, template.expireSubmissions) &&
-        Objects.equals(this.name, template.name) &&
-        Objects.equals(this.templateType, template.templateType) &&
-        Objects.equals(this.id, template.id) &&
-        Objects.equals(this.pageDimensions, template.pageDimensions) &&
-        Objects.equals(this.redirectUrl, template.redirectUrl);
+    Template1 template1 = (Template1) o;
+    return Objects.equals(this.expirationInterval, template1.expirationInterval) &&
+        Objects.equals(this.webhookUrl, template1.webhookUrl) &&
+        Objects.equals(this.expireAfter, template1.expireAfter) &&
+        Objects.equals(this.allowAdditionalProperties, template1.allowAdditionalProperties) &&
+        Objects.equals(this.publicSubmissions, template1.publicSubmissions) &&
+        Objects.equals(this.slackWebhookUrl, template1.slackWebhookUrl) &&
+        Objects.equals(this.blockchainTimestampVerification, template1.blockchainTimestampVerification) &&
+        Objects.equals(this.publicWebForm, template1.publicWebForm) &&
+        Objects.equals(this.expireSubmissions, template1.expireSubmissions) &&
+        Objects.equals(this.name, template1.name) &&
+        Objects.equals(this.templateType, template1.templateType) &&
+        Objects.equals(this.id, template1.id) &&
+        Objects.equals(this.redirectUrl, template1.redirectUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(expirationInterval, webhookUrl, expireAfter, allowAdditionalProperties, publicSubmissions, slackWebhookUrl, blockchainTimestampVerification, publicWebForm, expireSubmissions, name, templateType, id, pageDimensions, redirectUrl);
+    return Objects.hash(expirationInterval, webhookUrl, expireAfter, allowAdditionalProperties, publicSubmissions, slackWebhookUrl, blockchainTimestampVerification, publicWebForm, expireSubmissions, name, templateType, id, redirectUrl);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Template {\n");
+    sb.append("class Template1 {\n");
     
     sb.append("    expirationInterval: ").append(toIndentedString(expirationInterval)).append("\n");
     sb.append("    webhookUrl: ").append(toIndentedString(webhookUrl)).append("\n");
@@ -446,7 +413,6 @@ public class Template {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    templateType: ").append(toIndentedString(templateType)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    pageDimensions: ").append(toIndentedString(pageDimensions)).append("\n");
     sb.append("    redirectUrl: ").append(toIndentedString(redirectUrl)).append("\n");
     sb.append("}");
     return sb.toString();

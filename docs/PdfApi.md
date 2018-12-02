@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**batchGeneratePdfs**](PdfApi.md#batchGeneratePdfs) | **POST** submissions/batches | Generates multiple PDFs
 [**combineSubmissions**](PdfApi.md#combineSubmissions) | **POST** combined_submissions | Merge generated PDFs together
 [**createDataRequestToken**](PdfApi.md#createDataRequestToken) | **POST** data_requests/{data_request_id}/tokens | Creates a new data request token for form authentication
+[**createTemplate**](PdfApi.md#createTemplate) | **POST** templates | Upload a new PDF template
 [**expireCombinedSubmission**](PdfApi.md#expireCombinedSubmission) | **DELETE** combined_submissions/{combined_submission_id} | Expire a combined submission
 [**expireSubmission**](PdfApi.md#expireSubmission) | **DELETE** submissions/{submission_id} | Expire a PDF submission
 [**generatePDF**](PdfApi.md#generatePDF) | **POST** templates/{template_id}/submissions | Generates a new PDF
@@ -15,6 +16,8 @@ Method | HTTP request | Description
 [**getDataRequest**](PdfApi.md#getDataRequest) | **GET** data_requests/{data_request_id} | Look up a submission data request
 [**getSubmission**](PdfApi.md#getSubmission) | **GET** submissions/{submission_id} | Check the status of a PDF
 [**getSubmissionBatch**](PdfApi.md#getSubmissionBatch) | **GET** submissions/batches/{submission_batch_id} | Check the status of a submission batch job
+[**getTemplate**](PdfApi.md#getTemplate) | **GET** templates/{template_id} | Check the status of an uploaded template
+[**getTemplateSchema**](PdfApi.md#getTemplateSchema) | **GET** templates/{template_id}/schema | Fetch the JSON schema for a template
 [**getTemplates**](PdfApi.md#getTemplates) | **GET** templates | Get a list of all templates
 [**testAuthentication**](PdfApi.md#testAuthentication) | **GET** authentication | Test Authentication
 [**updateDataRequest**](PdfApi.md#updateDataRequest) | **PUT** data_requests/{data_request_id} | Update a submission data request
@@ -228,6 +231,60 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="createTemplate"></a>
+# **createTemplate**
+> Template1 createTemplate(templateDocument, templateName)
+
+Upload a new PDF template
+
+### Example
+```java
+// Import classes:
+//import io.formapi.ApiClient;
+//import io.formapi.ApiException;
+//import io.formapi.Configuration;
+//import io.formapi.auth.*;
+//import io.formapi.PdfApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: api_token_basic
+HttpBasicAuth api_token_basic = (HttpBasicAuth) defaultClient.getAuthentication("api_token_basic");
+api_token_basic.setUsername("YOUR USERNAME");
+api_token_basic.setPassword("YOUR PASSWORD");
+
+PdfApi apiInstance = new PdfApi();
+File templateDocument = new File("null"); // File | 
+String templateName = "null"; // String | 
+try {
+    Template1 result = apiInstance.createTemplate(templateDocument, templateName);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PdfApi#createTemplate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **templateDocument** | **File**|  | [default to null]
+ **templateName** | **String**|  | [default to null]
+
+### Return type
+
+[**Template1**](Template1.md)
+
+### Authorization
+
+[api_token_basic](../README.md#api_token_basic)
+
+### HTTP request headers
+
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 <a name="expireCombinedSubmission"></a>
@@ -588,6 +645,110 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**SubmissionBatch**](SubmissionBatch.md)
+
+### Authorization
+
+[api_token_basic](../README.md#api_token_basic)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getTemplate"></a>
+# **getTemplate**
+> Template getTemplate(templateId)
+
+Check the status of an uploaded template
+
+### Example
+```java
+// Import classes:
+//import io.formapi.ApiClient;
+//import io.formapi.ApiException;
+//import io.formapi.Configuration;
+//import io.formapi.auth.*;
+//import io.formapi.PdfApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: api_token_basic
+HttpBasicAuth api_token_basic = (HttpBasicAuth) defaultClient.getAuthentication("api_token_basic");
+api_token_basic.setUsername("YOUR USERNAME");
+api_token_basic.setPassword("YOUR PASSWORD");
+
+PdfApi apiInstance = new PdfApi();
+String templateId = tpl_000000000000000001; // String | 
+try {
+    Template result = apiInstance.getTemplate(templateId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PdfApi#getTemplate");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **templateId** | **String**|  |
+
+### Return type
+
+[**Template**](Template.md)
+
+### Authorization
+
+[api_token_basic](../README.md#api_token_basic)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="getTemplateSchema"></a>
+# **getTemplateSchema**
+> Map&lt;String, Object&gt; getTemplateSchema(templateId)
+
+Fetch the JSON schema for a template
+
+### Example
+```java
+// Import classes:
+//import io.formapi.ApiClient;
+//import io.formapi.ApiException;
+//import io.formapi.Configuration;
+//import io.formapi.auth.*;
+//import io.formapi.PdfApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: api_token_basic
+HttpBasicAuth api_token_basic = (HttpBasicAuth) defaultClient.getAuthentication("api_token_basic");
+api_token_basic.setUsername("YOUR USERNAME");
+api_token_basic.setPassword("YOUR PASSWORD");
+
+PdfApi apiInstance = new PdfApi();
+String templateId = tpl_000000000000000001; // String | 
+try {
+    Map<String, Object> result = apiInstance.getTemplateSchema(templateId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PdfApi#getTemplateSchema");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **templateId** | **String**|  |
+
+### Return type
+
+**Map&lt;String, Object&gt;**
 
 ### Authorization
 
