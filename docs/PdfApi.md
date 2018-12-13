@@ -235,7 +235,7 @@ Name | Type | Description  | Notes
 
 <a name="createTemplate"></a>
 # **createTemplate**
-> Template1 createTemplate(templateDocument, templateName)
+> PendingTemplate createTemplate(templateDocument, templateName)
 
 Upload a new PDF template
 
@@ -259,7 +259,7 @@ PdfApi apiInstance = new PdfApi();
 File templateDocument = new File("null"); // File | 
 String templateName = "null"; // String | 
 try {
-    Template1 result = apiInstance.createTemplate(templateDocument, templateName);
+    PendingTemplate result = apiInstance.createTemplate(templateDocument, templateName);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PdfApi#createTemplate");
@@ -276,7 +276,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Template1**](Template1.md)
+[**PendingTemplate**](PendingTemplate.md)
 
 ### Authorization
 

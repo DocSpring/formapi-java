@@ -26,10 +26,10 @@ import java.io.IOException;
 import java.math.BigDecimal;
 
 /**
- * Template1
+ * PendingTemplate
  */
-@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-01T01:05:42.176+07:00[Asia/Bangkok]")
-public class Template1 {
+@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-13T17:52:48.270+07:00[Asia/Bangkok]")
+public class PendingTemplate {
   /**
    * Gets or Sets expirationInterval
    */
@@ -131,7 +131,7 @@ public class Template1 {
   @SerializedName(SERIALIZED_NAME_REDIRECT_URL)
   private String redirectUrl = null;
 
-  public Template1 expirationInterval(ExpirationIntervalEnum expirationInterval) {
+  public PendingTemplate expirationInterval(ExpirationIntervalEnum expirationInterval) {
     this.expirationInterval = expirationInterval;
     return this;
   }
@@ -149,7 +149,7 @@ public class Template1 {
     this.expirationInterval = expirationInterval;
   }
 
-  public Template1 webhookUrl(String webhookUrl) {
+  public PendingTemplate webhookUrl(String webhookUrl) {
     this.webhookUrl = webhookUrl;
     return this;
   }
@@ -167,7 +167,7 @@ public class Template1 {
     this.webhookUrl = webhookUrl;
   }
 
-  public Template1 expireAfter(BigDecimal expireAfter) {
+  public PendingTemplate expireAfter(BigDecimal expireAfter) {
     this.expireAfter = expireAfter;
     return this;
   }
@@ -185,7 +185,7 @@ public class Template1 {
     this.expireAfter = expireAfter;
   }
 
-  public Template1 allowAdditionalProperties(Boolean allowAdditionalProperties) {
+  public PendingTemplate allowAdditionalProperties(Boolean allowAdditionalProperties) {
     this.allowAdditionalProperties = allowAdditionalProperties;
     return this;
   }
@@ -203,7 +203,7 @@ public class Template1 {
     this.allowAdditionalProperties = allowAdditionalProperties;
   }
 
-  public Template1 publicSubmissions(Boolean publicSubmissions) {
+  public PendingTemplate publicSubmissions(Boolean publicSubmissions) {
     this.publicSubmissions = publicSubmissions;
     return this;
   }
@@ -221,7 +221,7 @@ public class Template1 {
     this.publicSubmissions = publicSubmissions;
   }
 
-  public Template1 slackWebhookUrl(String slackWebhookUrl) {
+  public PendingTemplate slackWebhookUrl(String slackWebhookUrl) {
     this.slackWebhookUrl = slackWebhookUrl;
     return this;
   }
@@ -239,7 +239,7 @@ public class Template1 {
     this.slackWebhookUrl = slackWebhookUrl;
   }
 
-  public Template1 blockchainTimestampVerification(Boolean blockchainTimestampVerification) {
+  public PendingTemplate blockchainTimestampVerification(Boolean blockchainTimestampVerification) {
     this.blockchainTimestampVerification = blockchainTimestampVerification;
     return this;
   }
@@ -257,7 +257,7 @@ public class Template1 {
     this.blockchainTimestampVerification = blockchainTimestampVerification;
   }
 
-  public Template1 publicWebForm(Boolean publicWebForm) {
+  public PendingTemplate publicWebForm(Boolean publicWebForm) {
     this.publicWebForm = publicWebForm;
     return this;
   }
@@ -275,7 +275,7 @@ public class Template1 {
     this.publicWebForm = publicWebForm;
   }
 
-  public Template1 expireSubmissions(Boolean expireSubmissions) {
+  public PendingTemplate expireSubmissions(Boolean expireSubmissions) {
     this.expireSubmissions = expireSubmissions;
     return this;
   }
@@ -293,7 +293,7 @@ public class Template1 {
     this.expireSubmissions = expireSubmissions;
   }
 
-  public Template1 name(String name) {
+  public PendingTemplate name(String name) {
     this.name = name;
     return this;
   }
@@ -311,7 +311,7 @@ public class Template1 {
     this.name = name;
   }
 
-  public Template1 templateType(String templateType) {
+  public PendingTemplate templateType(String templateType) {
     this.templateType = templateType;
     return this;
   }
@@ -329,7 +329,7 @@ public class Template1 {
     this.templateType = templateType;
   }
 
-  public Template1 id(String id) {
+  public PendingTemplate id(String id) {
     this.id = id;
     return this;
   }
@@ -347,7 +347,7 @@ public class Template1 {
     this.id = id;
   }
 
-  public Template1 redirectUrl(String redirectUrl) {
+  public PendingTemplate redirectUrl(String redirectUrl) {
     this.redirectUrl = redirectUrl;
     return this;
   }
@@ -374,20 +374,20 @@ public class Template1 {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Template1 template1 = (Template1) o;
-    return Objects.equals(this.expirationInterval, template1.expirationInterval) &&
-        Objects.equals(this.webhookUrl, template1.webhookUrl) &&
-        Objects.equals(this.expireAfter, template1.expireAfter) &&
-        Objects.equals(this.allowAdditionalProperties, template1.allowAdditionalProperties) &&
-        Objects.equals(this.publicSubmissions, template1.publicSubmissions) &&
-        Objects.equals(this.slackWebhookUrl, template1.slackWebhookUrl) &&
-        Objects.equals(this.blockchainTimestampVerification, template1.blockchainTimestampVerification) &&
-        Objects.equals(this.publicWebForm, template1.publicWebForm) &&
-        Objects.equals(this.expireSubmissions, template1.expireSubmissions) &&
-        Objects.equals(this.name, template1.name) &&
-        Objects.equals(this.templateType, template1.templateType) &&
-        Objects.equals(this.id, template1.id) &&
-        Objects.equals(this.redirectUrl, template1.redirectUrl);
+    PendingTemplate pendingTemplate = (PendingTemplate) o;
+    return Objects.equals(this.expirationInterval, pendingTemplate.expirationInterval) &&
+        Objects.equals(this.webhookUrl, pendingTemplate.webhookUrl) &&
+        Objects.equals(this.expireAfter, pendingTemplate.expireAfter) &&
+        Objects.equals(this.allowAdditionalProperties, pendingTemplate.allowAdditionalProperties) &&
+        Objects.equals(this.publicSubmissions, pendingTemplate.publicSubmissions) &&
+        Objects.equals(this.slackWebhookUrl, pendingTemplate.slackWebhookUrl) &&
+        Objects.equals(this.blockchainTimestampVerification, pendingTemplate.blockchainTimestampVerification) &&
+        Objects.equals(this.publicWebForm, pendingTemplate.publicWebForm) &&
+        Objects.equals(this.expireSubmissions, pendingTemplate.expireSubmissions) &&
+        Objects.equals(this.name, pendingTemplate.name) &&
+        Objects.equals(this.templateType, pendingTemplate.templateType) &&
+        Objects.equals(this.id, pendingTemplate.id) &&
+        Objects.equals(this.redirectUrl, pendingTemplate.redirectUrl);
   }
 
   @Override
@@ -399,7 +399,7 @@ public class Template1 {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Template1 {\n");
+    sb.append("class PendingTemplate {\n");
     
     sb.append("    expirationInterval: ").append(toIndentedString(expirationInterval)).append("\n");
     sb.append("    webhookUrl: ").append(toIndentedString(webhookUrl)).append("\n");

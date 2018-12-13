@@ -14,12 +14,12 @@ import io.formapi.CreateSubmissionResponse;
 import io.formapi.Error;
 import java.io.File;
 import io.formapi.InvalidRequest;
+import io.formapi.PendingTemplate;
 import io.formapi.Submission;
 import io.formapi.SubmissionBatch;
 import io.formapi.SubmissionBatchData;
 import io.formapi.SubmissionDataRequest;
 import io.formapi.Template;
-import io.formapi.Template1;
 import io.formapi.UpdateDataRequestResponse;
 import io.formapi.UpdateSubmissionDataRequestData;
 import org.junit.Before;
@@ -100,7 +100,7 @@ public class PdfApiTest {
     public void createTemplateTest() {
         File templateDocument = null;
         String templateName = null;
-        // Template1 response = api.createTemplate(templateDocument, templateName);
+        // PendingTemplate response = api.createTemplate(templateDocument, templateName);
 
         // TODO: test validations
     }

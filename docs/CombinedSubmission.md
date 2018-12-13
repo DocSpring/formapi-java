@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **submissionIds** | **List&lt;String&gt;** |  |  [optional]
 **id** | **String** |  |  [optional]
 **state** | [**StateEnum**](#StateEnum) |  |  [optional]
+**actions** | [**List&lt;CombinedSubmissionAction&gt;**](CombinedSubmissionAction.md) |  |  [optional]
 
 
 <a name="StateEnum"></a>

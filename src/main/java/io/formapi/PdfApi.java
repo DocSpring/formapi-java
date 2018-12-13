@@ -22,12 +22,12 @@ import io.formapi.CreateSubmissionResponse;
 import io.formapi.Error;
 import java.io.File;
 import io.formapi.InvalidRequest;
+import io.formapi.PendingTemplate;
 import io.formapi.Submission;
 import io.formapi.SubmissionBatch;
 import io.formapi.SubmissionBatchData;
 import io.formapi.SubmissionDataRequest;
 import io.formapi.Template;
-import io.formapi.Template1;
 import io.formapi.UpdateDataRequestResponse;
 import io.formapi.UpdateSubmissionDataRequestData;
 
@@ -96,11 +96,11 @@ public interface PdfApi {
    * 
    * @param templateDocument  (required)
    * @param templateName  (required)
-   * @return Call&lt;Template1&gt;
+   * @return Call&lt;PendingTemplate&gt;
    */
   @retrofit2.http.Multipart
   @POST("templates")
-  Call<Template1> createTemplate(
+  Call<PendingTemplate> createTemplate(
     @retrofit2.http.Part("template[document]") MultipartBody.Part templateDocument, @retrofit2.http.Part("template[name]") String templateName
   );
 

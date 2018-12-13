@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.formapi.CombinedSubmissionAction;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -29,7 +30,7 @@ import java.util.List;
 /**
  * CombinedSubmission
  */
-@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-01T01:05:42.176+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-13T17:52:48.270+07:00[Asia/Bangkok]")
 public class CombinedSubmission {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -107,6 +108,10 @@ public class CombinedSubmission {
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
   private StateEnum state = null;
+
+  public static final String SERIALIZED_NAME_ACTIONS = "actions";
+  @SerializedName(SERIALIZED_NAME_ACTIONS)
+  private List<CombinedSubmissionAction> actions = null;
 
   public CombinedSubmission metadata(Object metadata) {
     this.metadata = metadata;
@@ -242,6 +247,32 @@ public class CombinedSubmission {
     this.state = state;
   }
 
+  public CombinedSubmission actions(List<CombinedSubmissionAction> actions) {
+    this.actions = actions;
+    return this;
+  }
+
+  public CombinedSubmission addActionsItem(CombinedSubmissionAction actionsItem) {
+    if (this.actions == null) {
+      this.actions = new ArrayList<CombinedSubmissionAction>();
+    }
+    this.actions.add(actionsItem);
+    return this;
+  }
+
+   /**
+   * Get actions
+   * @return actions
+  **/
+  @ApiModelProperty(value = "")
+  public List<CombinedSubmissionAction> getActions() {
+    return actions;
+  }
+
+  public void setActions(List<CombinedSubmissionAction> actions) {
+    this.actions = actions;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -258,12 +289,13 @@ public class CombinedSubmission {
         Objects.equals(this.downloadUrl, combinedSubmission.downloadUrl) &&
         Objects.equals(this.submissionIds, combinedSubmission.submissionIds) &&
         Objects.equals(this.id, combinedSubmission.id) &&
-        Objects.equals(this.state, combinedSubmission.state);
+        Objects.equals(this.state, combinedSubmission.state) &&
+        Objects.equals(this.actions, combinedSubmission.actions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(metadata, expired, expiresAt, downloadUrl, submissionIds, id, state);
+    return Objects.hash(metadata, expired, expiresAt, downloadUrl, submissionIds, id, state, actions);
   }
 
 
@@ -279,6 +311,7 @@ public class CombinedSubmission {
     sb.append("    submissionIds: ").append(toIndentedString(submissionIds)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    actions: ").append(toIndentedString(actions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

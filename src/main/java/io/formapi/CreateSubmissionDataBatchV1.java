@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * CreateSubmissionDataBatchV1
  */
-@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-01T01:05:42.176+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-13T17:52:48.270+07:00[Asia/Bangkok]")
 public class CreateSubmissionDataBatchV1 {
   public static final String SERIALIZED_NAME_TEST = "test";
   @SerializedName(SERIALIZED_NAME_TEST)

@@ -20,6 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.formapi.SubmissionAction;
 import io.formapi.SubmissionDataRequest;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -30,7 +31,7 @@ import java.util.List;
 /**
  * Submission
  */
-@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-01T01:05:42.176+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-13T17:52:48.270+07:00[Asia/Bangkok]")
 public class Submission {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -128,6 +129,10 @@ public class Submission {
   public static final String SERIALIZED_NAME_DATA_REQUESTS = "data_requests";
   @SerializedName(SERIALIZED_NAME_DATA_REQUESTS)
   private List<SubmissionDataRequest> dataRequests = null;
+
+  public static final String SERIALIZED_NAME_ACTIONS = "actions";
+  @SerializedName(SERIALIZED_NAME_ACTIONS)
+  private List<SubmissionAction> actions = null;
 
   public Submission id(String id) {
     this.id = id;
@@ -317,6 +322,32 @@ public class Submission {
     this.dataRequests = dataRequests;
   }
 
+  public Submission actions(List<SubmissionAction> actions) {
+    this.actions = actions;
+    return this;
+  }
+
+  public Submission addActionsItem(SubmissionAction actionsItem) {
+    if (this.actions == null) {
+      this.actions = new ArrayList<SubmissionAction>();
+    }
+    this.actions.add(actionsItem);
+    return this;
+  }
+
+   /**
+   * Get actions
+   * @return actions
+  **/
+  @ApiModelProperty(value = "")
+  public List<SubmissionAction> getActions() {
+    return actions;
+  }
+
+  public void setActions(List<SubmissionAction> actions) {
+    this.actions = actions;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -336,12 +367,13 @@ public class Submission {
         Objects.equals(this.metadata, submission.metadata) &&
         Objects.equals(this.downloadUrl, submission.downloadUrl) &&
         Objects.equals(this.batchId, submission.batchId) &&
-        Objects.equals(this.dataRequests, submission.dataRequests);
+        Objects.equals(this.dataRequests, submission.dataRequests) &&
+        Objects.equals(this.actions, submission.actions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, test, expired, expiresAt, processedAt, state, metadata, downloadUrl, batchId, dataRequests);
+    return Objects.hash(id, test, expired, expiresAt, processedAt, state, metadata, downloadUrl, batchId, dataRequests, actions);
   }
 
 
@@ -360,6 +392,7 @@ public class Submission {
     sb.append("    downloadUrl: ").append(toIndentedString(downloadUrl)).append("\n");
     sb.append("    batchId: ").append(toIndentedString(batchId)).append("\n");
     sb.append("    dataRequests: ").append(toIndentedString(dataRequests)).append("\n");
+    sb.append("    actions: ").append(toIndentedString(actions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

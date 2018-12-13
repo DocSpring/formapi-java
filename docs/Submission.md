@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **downloadUrl** | **String** |  |  [optional]
 **batchId** | **String** |  |  [optional]
 **dataRequests** | [**List&lt;SubmissionDataRequest&gt;**](SubmissionDataRequest.md) |  |  [optional]
+**actions** | [**List&lt;SubmissionAction&gt;**](SubmissionAction.md) |  |  [optional]
 
 
 <a name="StateEnum"></a>
