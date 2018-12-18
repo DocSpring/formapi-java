@@ -104,7 +104,7 @@ public class ApiClient {
     json = new JSON();
     okBuilder = new OkHttpClient.Builder();
 
-    String baseUrl = "https://app.formapi.io/api/v1";
+    String baseUrl = "https://api.formapi.io/api/v1";
     if (!baseUrl.endsWith("/"))
       baseUrl = baseUrl + "/";
 

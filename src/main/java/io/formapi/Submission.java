@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * Submission
  */
-@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-13T17:52:48.270+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-18T08:05:56.906+07:00[Asia/Bangkok]")
 public class Submission {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)

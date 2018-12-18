@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * SubmissionBatchData
  */
-@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-13T17:52:48.270+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-18T08:05:56.906+07:00[Asia/Bangkok]")
 public class SubmissionBatchData {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)

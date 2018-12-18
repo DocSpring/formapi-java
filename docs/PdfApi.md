@@ -1,6 +1,6 @@
 # PdfApi
 
-All URIs are relative to *https://app.formapi.io/api/v1*
+All URIs are relative to *https://api.formapi.io/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
