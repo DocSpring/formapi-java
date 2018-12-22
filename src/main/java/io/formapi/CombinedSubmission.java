@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * CombinedSubmission
  */
-@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-18T08:05:56.906+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-23T04:05:17.704+07:00[Asia/Bangkok]")
 public class CombinedSubmission {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -43,6 +43,10 @@ public class CombinedSubmission {
   public static final String SERIALIZED_NAME_EXPIRES_AT = "expires_at";
   @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
   private String expiresAt = null;
+
+  public static final String SERIALIZED_NAME_SOURCE_PDFS = "source_pdfs";
+  @SerializedName(SERIALIZED_NAME_SOURCE_PDFS)
+  private List<Object> sourcePdfs = null;
 
   public static final String SERIALIZED_NAME_DOWNLOAD_URL = "download_url";
   @SerializedName(SERIALIZED_NAME_DOWNLOAD_URL)
@@ -167,6 +171,32 @@ public class CombinedSubmission {
     this.expiresAt = expiresAt;
   }
 
+  public CombinedSubmission sourcePdfs(List<Object> sourcePdfs) {
+    this.sourcePdfs = sourcePdfs;
+    return this;
+  }
+
+  public CombinedSubmission addSourcePdfsItem(Object sourcePdfsItem) {
+    if (this.sourcePdfs == null) {
+      this.sourcePdfs = new ArrayList<Object>();
+    }
+    this.sourcePdfs.add(sourcePdfsItem);
+    return this;
+  }
+
+   /**
+   * Get sourcePdfs
+   * @return sourcePdfs
+  **/
+  @ApiModelProperty(value = "")
+  public List<Object> getSourcePdfs() {
+    return sourcePdfs;
+  }
+
+  public void setSourcePdfs(List<Object> sourcePdfs) {
+    this.sourcePdfs = sourcePdfs;
+  }
+
   public CombinedSubmission downloadUrl(String downloadUrl) {
     this.downloadUrl = downloadUrl;
     return this;
@@ -286,6 +316,7 @@ public class CombinedSubmission {
     return Objects.equals(this.metadata, combinedSubmission.metadata) &&
         Objects.equals(this.expired, combinedSubmission.expired) &&
         Objects.equals(this.expiresAt, combinedSubmission.expiresAt) &&
+        Objects.equals(this.sourcePdfs, combinedSubmission.sourcePdfs) &&
         Objects.equals(this.downloadUrl, combinedSubmission.downloadUrl) &&
         Objects.equals(this.submissionIds, combinedSubmission.submissionIds) &&
         Objects.equals(this.id, combinedSubmission.id) &&
@@ -295,7 +326,7 @@ public class CombinedSubmission {
 
   @Override
   public int hashCode() {
-    return Objects.hash(metadata, expired, expiresAt, downloadUrl, submissionIds, id, state, actions);
+    return Objects.hash(metadata, expired, expiresAt, sourcePdfs, downloadUrl, submissionIds, id, state, actions);
   }
 
 
@@ -307,6 +338,7 @@ public class CombinedSubmission {
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    expired: ").append(toIndentedString(expired)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
+    sb.append("    sourcePdfs: ").append(toIndentedString(sourcePdfs)).append("\n");
     sb.append("    downloadUrl: ").append(toIndentedString(downloadUrl)).append("\n");
     sb.append("    submissionIds: ").append(toIndentedString(submissionIds)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");

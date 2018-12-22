@@ -20,18 +20,19 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.formapi.SubmissionDataBatchRequest;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- * SubmissionBatchData
+ * SubmissionDataBatchRequest
  */
 @javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-23T04:05:17.704+07:00[Asia/Bangkok]")
-public class SubmissionBatchData {
+public class SubmissionDataBatchRequest {
+  public static final String SERIALIZED_NAME_CSS = "css";
+  @SerializedName(SERIALIZED_NAME_CSS)
+  private String css = null;
+
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata = null;
@@ -40,15 +41,37 @@ public class SubmissionBatchData {
   @SerializedName(SERIALIZED_NAME_TEST)
   private Boolean test = null;
 
+  public static final String SERIALIZED_NAME_DATA = "data";
+  @SerializedName(SERIALIZED_NAME_DATA)
+  private Object data = null;
+
   public static final String SERIALIZED_NAME_TEMPLATE_ID = "template_id";
   @SerializedName(SERIALIZED_NAME_TEMPLATE_ID)
   private String templateId = null;
 
-  public static final String SERIALIZED_NAME_SUBMISSIONS = "submissions";
-  @SerializedName(SERIALIZED_NAME_SUBMISSIONS)
-  private List<SubmissionDataBatchRequest> submissions = new ArrayList<SubmissionDataBatchRequest>();
+  public static final String SERIALIZED_NAME_HTML = "html";
+  @SerializedName(SERIALIZED_NAME_HTML)
+  private String html = null;
 
-  public SubmissionBatchData metadata(Object metadata) {
+  public SubmissionDataBatchRequest css(String css) {
+    this.css = css;
+    return this;
+  }
+
+   /**
+   * Get css
+   * @return css
+  **/
+  @ApiModelProperty(value = "")
+  public String getCss() {
+    return css;
+  }
+
+  public void setCss(String css) {
+    this.css = css;
+  }
+
+  public SubmissionDataBatchRequest metadata(Object metadata) {
     this.metadata = metadata;
     return this;
   }
@@ -66,7 +89,7 @@ public class SubmissionBatchData {
     this.metadata = metadata;
   }
 
-  public SubmissionBatchData test(Boolean test) {
+  public SubmissionDataBatchRequest test(Boolean test) {
     this.test = test;
     return this;
   }
@@ -84,7 +107,25 @@ public class SubmissionBatchData {
     this.test = test;
   }
 
-  public SubmissionBatchData templateId(String templateId) {
+  public SubmissionDataBatchRequest data(Object data) {
+    this.data = data;
+    return this;
+  }
+
+   /**
+   * Get data
+   * @return data
+  **/
+  @ApiModelProperty(value = "")
+  public Object getData() {
+    return data;
+  }
+
+  public void setData(Object data) {
+    this.data = data;
+  }
+
+  public SubmissionDataBatchRequest templateId(String templateId) {
     this.templateId = templateId;
     return this;
   }
@@ -102,27 +143,22 @@ public class SubmissionBatchData {
     this.templateId = templateId;
   }
 
-  public SubmissionBatchData submissions(List<SubmissionDataBatchRequest> submissions) {
-    this.submissions = submissions;
-    return this;
-  }
-
-  public SubmissionBatchData addSubmissionsItem(SubmissionDataBatchRequest submissionsItem) {
-    this.submissions.add(submissionsItem);
+  public SubmissionDataBatchRequest html(String html) {
+    this.html = html;
     return this;
   }
 
    /**
-   * Get submissions
-   * @return submissions
+   * Get html
+   * @return html
   **/
-  @ApiModelProperty(required = true, value = "")
-  public List<SubmissionDataBatchRequest> getSubmissions() {
-    return submissions;
+  @ApiModelProperty(value = "")
+  public String getHtml() {
+    return html;
   }
 
-  public void setSubmissions(List<SubmissionDataBatchRequest> submissions) {
-    this.submissions = submissions;
+  public void setHtml(String html) {
+    this.html = html;
   }
 
 
@@ -134,28 +170,32 @@ public class SubmissionBatchData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    SubmissionBatchData submissionBatchData = (SubmissionBatchData) o;
-    return Objects.equals(this.metadata, submissionBatchData.metadata) &&
-        Objects.equals(this.test, submissionBatchData.test) &&
-        Objects.equals(this.templateId, submissionBatchData.templateId) &&
-        Objects.equals(this.submissions, submissionBatchData.submissions);
+    SubmissionDataBatchRequest submissionDataBatchRequest = (SubmissionDataBatchRequest) o;
+    return Objects.equals(this.css, submissionDataBatchRequest.css) &&
+        Objects.equals(this.metadata, submissionDataBatchRequest.metadata) &&
+        Objects.equals(this.test, submissionDataBatchRequest.test) &&
+        Objects.equals(this.data, submissionDataBatchRequest.data) &&
+        Objects.equals(this.templateId, submissionDataBatchRequest.templateId) &&
+        Objects.equals(this.html, submissionDataBatchRequest.html);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(metadata, test, templateId, submissions);
+    return Objects.hash(css, metadata, test, data, templateId, html);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class SubmissionBatchData {\n");
+    sb.append("class SubmissionDataBatchRequest {\n");
     
+    sb.append("    css: ").append(toIndentedString(css)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    test: ").append(toIndentedString(test)).append("\n");
+    sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
-    sb.append("    submissions: ").append(toIndentedString(submissions)).append("\n");
+    sb.append("    html: ").append(toIndentedString(html)).append("\n");
     sb.append("}");
     return sb.toString();
   }

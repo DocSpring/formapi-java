@@ -20,16 +20,17 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.formapi.Templatesv2TemplateDocument;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.math.BigDecimal;
 
 /**
- * PendingTemplate
+ * Templatesv2Template
  */
 @javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-23T04:05:17.704+07:00[Asia/Bangkok]")
-public class PendingTemplate {
+public class Templatesv2Template {
   /**
    * Gets or Sets expirationInterval
    */
@@ -83,9 +84,17 @@ public class PendingTemplate {
   @SerializedName(SERIALIZED_NAME_EXPIRATION_INTERVAL)
   private ExpirationIntervalEnum expirationInterval = null;
 
+  public static final String SERIALIZED_NAME_PUBLIC_WEB_FORM = "public_web_form";
+  @SerializedName(SERIALIZED_NAME_PUBLIC_WEB_FORM)
+  private Boolean publicWebForm = null;
+
   public static final String SERIALIZED_NAME_WEBHOOK_URL = "webhook_url";
   @SerializedName(SERIALIZED_NAME_WEBHOOK_URL)
   private String webhookUrl = null;
+
+  public static final String SERIALIZED_NAME_EXPIRE_SUBMISSIONS = "expire_submissions";
+  @SerializedName(SERIALIZED_NAME_EXPIRE_SUBMISSIONS)
+  private Boolean expireSubmissions = null;
 
   public static final String SERIALIZED_NAME_EXPIRE_AFTER = "expire_after";
   @SerializedName(SERIALIZED_NAME_EXPIRE_AFTER)
@@ -95,6 +104,14 @@ public class PendingTemplate {
   @SerializedName(SERIALIZED_NAME_ALLOW_ADDITIONAL_PROPERTIES)
   private Boolean allowAdditionalProperties = null;
 
+  public static final String SERIALIZED_NAME_DOCUMENT = "document";
+  @SerializedName(SERIALIZED_NAME_DOCUMENT)
+  private Templatesv2TemplateDocument document = null;
+
+  public static final String SERIALIZED_NAME_NAME = "name";
+  @SerializedName(SERIALIZED_NAME_NAME)
+  private String name = null;
+
   public static final String SERIALIZED_NAME_PUBLIC_SUBMISSIONS = "public_submissions";
   @SerializedName(SERIALIZED_NAME_PUBLIC_SUBMISSIONS)
   private Boolean publicSubmissions = null;
@@ -103,35 +120,15 @@ public class PendingTemplate {
   @SerializedName(SERIALIZED_NAME_SLACK_WEBHOOK_URL)
   private String slackWebhookUrl = null;
 
-  public static final String SERIALIZED_NAME_BLOCKCHAIN_TIMESTAMP_VERIFICATION = "blockchain_timestamp_verification";
-  @SerializedName(SERIALIZED_NAME_BLOCKCHAIN_TIMESTAMP_VERIFICATION)
-  private Boolean blockchainTimestampVerification = null;
-
-  public static final String SERIALIZED_NAME_PUBLIC_WEB_FORM = "public_web_form";
-  @SerializedName(SERIALIZED_NAME_PUBLIC_WEB_FORM)
-  private Boolean publicWebForm = null;
-
-  public static final String SERIALIZED_NAME_EXPIRE_SUBMISSIONS = "expire_submissions";
-  @SerializedName(SERIALIZED_NAME_EXPIRE_SUBMISSIONS)
-  private Boolean expireSubmissions = null;
-
-  public static final String SERIALIZED_NAME_NAME = "name";
-  @SerializedName(SERIALIZED_NAME_NAME)
-  private String name = null;
-
-  public static final String SERIALIZED_NAME_TEMPLATE_TYPE = "template_type";
-  @SerializedName(SERIALIZED_NAME_TEMPLATE_TYPE)
-  private String templateType = null;
-
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id = null;
-
   public static final String SERIALIZED_NAME_REDIRECT_URL = "redirect_url";
   @SerializedName(SERIALIZED_NAME_REDIRECT_URL)
   private String redirectUrl = null;
 
-  public PendingTemplate expirationInterval(ExpirationIntervalEnum expirationInterval) {
+  public static final String SERIALIZED_NAME_BLOCKCHAIN_TIMESTAMP_VERIFICATION = "blockchain_timestamp_verification";
+  @SerializedName(SERIALIZED_NAME_BLOCKCHAIN_TIMESTAMP_VERIFICATION)
+  private Boolean blockchainTimestampVerification = null;
+
+  public Templatesv2Template expirationInterval(ExpirationIntervalEnum expirationInterval) {
     this.expirationInterval = expirationInterval;
     return this;
   }
@@ -149,115 +146,7 @@ public class PendingTemplate {
     this.expirationInterval = expirationInterval;
   }
 
-  public PendingTemplate webhookUrl(String webhookUrl) {
-    this.webhookUrl = webhookUrl;
-    return this;
-  }
-
-   /**
-   * Get webhookUrl
-   * @return webhookUrl
-  **/
-  @ApiModelProperty(value = "")
-  public String getWebhookUrl() {
-    return webhookUrl;
-  }
-
-  public void setWebhookUrl(String webhookUrl) {
-    this.webhookUrl = webhookUrl;
-  }
-
-  public PendingTemplate expireAfter(BigDecimal expireAfter) {
-    this.expireAfter = expireAfter;
-    return this;
-  }
-
-   /**
-   * Get expireAfter
-   * @return expireAfter
-  **/
-  @ApiModelProperty(value = "")
-  public BigDecimal getExpireAfter() {
-    return expireAfter;
-  }
-
-  public void setExpireAfter(BigDecimal expireAfter) {
-    this.expireAfter = expireAfter;
-  }
-
-  public PendingTemplate allowAdditionalProperties(Boolean allowAdditionalProperties) {
-    this.allowAdditionalProperties = allowAdditionalProperties;
-    return this;
-  }
-
-   /**
-   * Get allowAdditionalProperties
-   * @return allowAdditionalProperties
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean getAllowAdditionalProperties() {
-    return allowAdditionalProperties;
-  }
-
-  public void setAllowAdditionalProperties(Boolean allowAdditionalProperties) {
-    this.allowAdditionalProperties = allowAdditionalProperties;
-  }
-
-  public PendingTemplate publicSubmissions(Boolean publicSubmissions) {
-    this.publicSubmissions = publicSubmissions;
-    return this;
-  }
-
-   /**
-   * Get publicSubmissions
-   * @return publicSubmissions
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean getPublicSubmissions() {
-    return publicSubmissions;
-  }
-
-  public void setPublicSubmissions(Boolean publicSubmissions) {
-    this.publicSubmissions = publicSubmissions;
-  }
-
-  public PendingTemplate slackWebhookUrl(String slackWebhookUrl) {
-    this.slackWebhookUrl = slackWebhookUrl;
-    return this;
-  }
-
-   /**
-   * Get slackWebhookUrl
-   * @return slackWebhookUrl
-  **/
-  @ApiModelProperty(value = "")
-  public String getSlackWebhookUrl() {
-    return slackWebhookUrl;
-  }
-
-  public void setSlackWebhookUrl(String slackWebhookUrl) {
-    this.slackWebhookUrl = slackWebhookUrl;
-  }
-
-  public PendingTemplate blockchainTimestampVerification(Boolean blockchainTimestampVerification) {
-    this.blockchainTimestampVerification = blockchainTimestampVerification;
-    return this;
-  }
-
-   /**
-   * Get blockchainTimestampVerification
-   * @return blockchainTimestampVerification
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean getBlockchainTimestampVerification() {
-    return blockchainTimestampVerification;
-  }
-
-  public void setBlockchainTimestampVerification(Boolean blockchainTimestampVerification) {
-    this.blockchainTimestampVerification = blockchainTimestampVerification;
-  }
-
-  public PendingTemplate publicWebForm(Boolean publicWebForm) {
+  public Templatesv2Template publicWebForm(Boolean publicWebForm) {
     this.publicWebForm = publicWebForm;
     return this;
   }
@@ -275,7 +164,25 @@ public class PendingTemplate {
     this.publicWebForm = publicWebForm;
   }
 
-  public PendingTemplate expireSubmissions(Boolean expireSubmissions) {
+  public Templatesv2Template webhookUrl(String webhookUrl) {
+    this.webhookUrl = webhookUrl;
+    return this;
+  }
+
+   /**
+   * Get webhookUrl
+   * @return webhookUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getWebhookUrl() {
+    return webhookUrl;
+  }
+
+  public void setWebhookUrl(String webhookUrl) {
+    this.webhookUrl = webhookUrl;
+  }
+
+  public Templatesv2Template expireSubmissions(Boolean expireSubmissions) {
     this.expireSubmissions = expireSubmissions;
     return this;
   }
@@ -293,7 +200,61 @@ public class PendingTemplate {
     this.expireSubmissions = expireSubmissions;
   }
 
-  public PendingTemplate name(String name) {
+  public Templatesv2Template expireAfter(BigDecimal expireAfter) {
+    this.expireAfter = expireAfter;
+    return this;
+  }
+
+   /**
+   * Get expireAfter
+   * @return expireAfter
+  **/
+  @ApiModelProperty(value = "")
+  public BigDecimal getExpireAfter() {
+    return expireAfter;
+  }
+
+  public void setExpireAfter(BigDecimal expireAfter) {
+    this.expireAfter = expireAfter;
+  }
+
+  public Templatesv2Template allowAdditionalProperties(Boolean allowAdditionalProperties) {
+    this.allowAdditionalProperties = allowAdditionalProperties;
+    return this;
+  }
+
+   /**
+   * Get allowAdditionalProperties
+   * @return allowAdditionalProperties
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean getAllowAdditionalProperties() {
+    return allowAdditionalProperties;
+  }
+
+  public void setAllowAdditionalProperties(Boolean allowAdditionalProperties) {
+    this.allowAdditionalProperties = allowAdditionalProperties;
+  }
+
+  public Templatesv2Template document(Templatesv2TemplateDocument document) {
+    this.document = document;
+    return this;
+  }
+
+   /**
+   * Get document
+   * @return document
+  **/
+  @ApiModelProperty(value = "")
+  public Templatesv2TemplateDocument getDocument() {
+    return document;
+  }
+
+  public void setDocument(Templatesv2TemplateDocument document) {
+    this.document = document;
+  }
+
+  public Templatesv2Template name(String name) {
     this.name = name;
     return this;
   }
@@ -311,43 +272,43 @@ public class PendingTemplate {
     this.name = name;
   }
 
-  public PendingTemplate templateType(String templateType) {
-    this.templateType = templateType;
+  public Templatesv2Template publicSubmissions(Boolean publicSubmissions) {
+    this.publicSubmissions = publicSubmissions;
     return this;
   }
 
    /**
-   * Get templateType
-   * @return templateType
+   * Get publicSubmissions
+   * @return publicSubmissions
   **/
   @ApiModelProperty(value = "")
-  public String getTemplateType() {
-    return templateType;
+  public Boolean getPublicSubmissions() {
+    return publicSubmissions;
   }
 
-  public void setTemplateType(String templateType) {
-    this.templateType = templateType;
+  public void setPublicSubmissions(Boolean publicSubmissions) {
+    this.publicSubmissions = publicSubmissions;
   }
 
-  public PendingTemplate id(String id) {
-    this.id = id;
+  public Templatesv2Template slackWebhookUrl(String slackWebhookUrl) {
+    this.slackWebhookUrl = slackWebhookUrl;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get slackWebhookUrl
+   * @return slackWebhookUrl
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public String getSlackWebhookUrl() {
+    return slackWebhookUrl;
   }
 
-  public void setId(String id) {
-    this.id = id;
+  public void setSlackWebhookUrl(String slackWebhookUrl) {
+    this.slackWebhookUrl = slackWebhookUrl;
   }
 
-  public PendingTemplate redirectUrl(String redirectUrl) {
+  public Templatesv2Template redirectUrl(String redirectUrl) {
     this.redirectUrl = redirectUrl;
     return this;
   }
@@ -365,6 +326,24 @@ public class PendingTemplate {
     this.redirectUrl = redirectUrl;
   }
 
+  public Templatesv2Template blockchainTimestampVerification(Boolean blockchainTimestampVerification) {
+    this.blockchainTimestampVerification = blockchainTimestampVerification;
+    return this;
+  }
+
+   /**
+   * Get blockchainTimestampVerification
+   * @return blockchainTimestampVerification
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean getBlockchainTimestampVerification() {
+    return blockchainTimestampVerification;
+  }
+
+  public void setBlockchainTimestampVerification(Boolean blockchainTimestampVerification) {
+    this.blockchainTimestampVerification = blockchainTimestampVerification;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -374,46 +353,44 @@ public class PendingTemplate {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PendingTemplate pendingTemplate = (PendingTemplate) o;
-    return Objects.equals(this.expirationInterval, pendingTemplate.expirationInterval) &&
-        Objects.equals(this.webhookUrl, pendingTemplate.webhookUrl) &&
-        Objects.equals(this.expireAfter, pendingTemplate.expireAfter) &&
-        Objects.equals(this.allowAdditionalProperties, pendingTemplate.allowAdditionalProperties) &&
-        Objects.equals(this.publicSubmissions, pendingTemplate.publicSubmissions) &&
-        Objects.equals(this.slackWebhookUrl, pendingTemplate.slackWebhookUrl) &&
-        Objects.equals(this.blockchainTimestampVerification, pendingTemplate.blockchainTimestampVerification) &&
-        Objects.equals(this.publicWebForm, pendingTemplate.publicWebForm) &&
-        Objects.equals(this.expireSubmissions, pendingTemplate.expireSubmissions) &&
-        Objects.equals(this.name, pendingTemplate.name) &&
-        Objects.equals(this.templateType, pendingTemplate.templateType) &&
-        Objects.equals(this.id, pendingTemplate.id) &&
-        Objects.equals(this.redirectUrl, pendingTemplate.redirectUrl);
+    Templatesv2Template templatesv2Template = (Templatesv2Template) o;
+    return Objects.equals(this.expirationInterval, templatesv2Template.expirationInterval) &&
+        Objects.equals(this.publicWebForm, templatesv2Template.publicWebForm) &&
+        Objects.equals(this.webhookUrl, templatesv2Template.webhookUrl) &&
+        Objects.equals(this.expireSubmissions, templatesv2Template.expireSubmissions) &&
+        Objects.equals(this.expireAfter, templatesv2Template.expireAfter) &&
+        Objects.equals(this.allowAdditionalProperties, templatesv2Template.allowAdditionalProperties) &&
+        Objects.equals(this.document, templatesv2Template.document) &&
+        Objects.equals(this.name, templatesv2Template.name) &&
+        Objects.equals(this.publicSubmissions, templatesv2Template.publicSubmissions) &&
+        Objects.equals(this.slackWebhookUrl, templatesv2Template.slackWebhookUrl) &&
+        Objects.equals(this.redirectUrl, templatesv2Template.redirectUrl) &&
+        Objects.equals(this.blockchainTimestampVerification, templatesv2Template.blockchainTimestampVerification);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(expirationInterval, webhookUrl, expireAfter, allowAdditionalProperties, publicSubmissions, slackWebhookUrl, blockchainTimestampVerification, publicWebForm, expireSubmissions, name, templateType, id, redirectUrl);
+    return Objects.hash(expirationInterval, publicWebForm, webhookUrl, expireSubmissions, expireAfter, allowAdditionalProperties, document, name, publicSubmissions, slackWebhookUrl, redirectUrl, blockchainTimestampVerification);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PendingTemplate {\n");
+    sb.append("class Templatesv2Template {\n");
     
     sb.append("    expirationInterval: ").append(toIndentedString(expirationInterval)).append("\n");
+    sb.append("    publicWebForm: ").append(toIndentedString(publicWebForm)).append("\n");
     sb.append("    webhookUrl: ").append(toIndentedString(webhookUrl)).append("\n");
+    sb.append("    expireSubmissions: ").append(toIndentedString(expireSubmissions)).append("\n");
     sb.append("    expireAfter: ").append(toIndentedString(expireAfter)).append("\n");
     sb.append("    allowAdditionalProperties: ").append(toIndentedString(allowAdditionalProperties)).append("\n");
+    sb.append("    document: ").append(toIndentedString(document)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    publicSubmissions: ").append(toIndentedString(publicSubmissions)).append("\n");
     sb.append("    slackWebhookUrl: ").append(toIndentedString(slackWebhookUrl)).append("\n");
-    sb.append("    blockchainTimestampVerification: ").append(toIndentedString(blockchainTimestampVerification)).append("\n");
-    sb.append("    publicWebForm: ").append(toIndentedString(publicWebForm)).append("\n");
-    sb.append("    expireSubmissions: ").append(toIndentedString(expireSubmissions)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    templateType: ").append(toIndentedString(templateType)).append("\n");
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    redirectUrl: ").append(toIndentedString(redirectUrl)).append("\n");
+    sb.append("    blockchainTimestampVerification: ").append(toIndentedString(blockchainTimestampVerification)).append("\n");
     sb.append("}");
     return sb.toString();
   }

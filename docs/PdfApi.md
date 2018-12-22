@@ -6,14 +6,18 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**batchGeneratePdfV1**](PdfApi.md#batchGeneratePdfV1) | **POST** templates/{template_id}/submissions/batch | Generates multiple PDFs
 [**batchGeneratePdfs**](PdfApi.md#batchGeneratePdfs) | **POST** submissions/batches | Generates multiple PDFs
+[**combinePdfs**](PdfApi.md#combinePdfs) | **POST** combined_submissions?v&#x3D;2 | Merge submission PDFs, template PDFs, or custom files
 [**combineSubmissions**](PdfApi.md#combineSubmissions) | **POST** combined_submissions | Merge generated PDFs together
+[**createCustomFileFromUpload**](PdfApi.md#createCustomFileFromUpload) | **POST** custom_files | Create a new custom file from a cached presign upload
 [**createDataRequestToken**](PdfApi.md#createDataRequestToken) | **POST** data_requests/{data_request_id}/tokens | Creates a new data request token for form authentication
-[**createTemplate**](PdfApi.md#createTemplate) | **POST** templates | Upload a new PDF template
+[**createTemplate**](PdfApi.md#createTemplate) | **POST** templates | Upload a new PDF template with a file upload
+[**createTemplateFromUpload**](PdfApi.md#createTemplateFromUpload) | **POST** templates?v&#x3D;2 | Create a new PDF template from a cached presign upload
 [**expireCombinedSubmission**](PdfApi.md#expireCombinedSubmission) | **DELETE** combined_submissions/{combined_submission_id} | Expire a combined submission
 [**expireSubmission**](PdfApi.md#expireSubmission) | **DELETE** submissions/{submission_id} | Expire a PDF submission
 [**generatePDF**](PdfApi.md#generatePDF) | **POST** templates/{template_id}/submissions | Generates a new PDF
 [**getCombinedSubmission**](PdfApi.md#getCombinedSubmission) | **GET** combined_submissions/{combined_submission_id} | Check the status of a combined submission (merged PDFs)
 [**getDataRequest**](PdfApi.md#getDataRequest) | **GET** data_requests/{data_request_id} | Look up a submission data request
+[**getPresignUrl**](PdfApi.md#getPresignUrl) | **GET** uploads/presign | Get a presigned URL so that you can upload a file to our AWS S3 bucket
 [**getSubmission**](PdfApi.md#getSubmission) | **GET** submissions/{submission_id} | Check the status of a PDF
 [**getSubmissionBatch**](PdfApi.md#getSubmissionBatch) | **GET** submissions/batches/{submission_batch_id} | Check the status of a submission batch job
 [**getTemplate**](PdfApi.md#getTemplate) | **GET** templates/{template_id} | Check the status of an uploaded template
@@ -25,7 +29,7 @@ Method | HTTP request | Description
 
 <a name="batchGeneratePdfV1"></a>
 # **batchGeneratePdfV1**
-> List&lt;CreateSubmissionResponse&gt; batchGeneratePdfV1(templateId, createSubmissionDataBatchV1)
+> List&lt;CreateSubmissionResponse&gt; batchGeneratePdfV1(templateId, requestBody)
 
 Generates multiple PDFs
 
@@ -47,9 +51,9 @@ api_token_basic.setPassword("YOUR PASSWORD");
 
 PdfApi apiInstance = new PdfApi();
 String templateId = tpl_000000000000000001; // String | 
-List<CreateSubmissionDataBatchV1> createSubmissionDataBatchV1 = Arrays.asList(new List()); // List<CreateSubmissionDataBatchV1> | 
+List<Object> requestBody = Arrays.asList(new List()); // List<Object> | 
 try {
-    List<CreateSubmissionResponse> result = apiInstance.batchGeneratePdfV1(templateId, createSubmissionDataBatchV1);
+    List<CreateSubmissionResponse> result = apiInstance.batchGeneratePdfV1(templateId, requestBody);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PdfApi#batchGeneratePdfV1");
@@ -62,7 +66,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **templateId** | **String**|  |
- **createSubmissionDataBatchV1** | [**List&lt;CreateSubmissionDataBatchV1&gt;**](List.md)|  |
+ **requestBody** | [**List&lt;Object&gt;**](List.md)|  |
 
 ### Return type
 
@@ -129,6 +133,58 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+<a name="combinePdfs"></a>
+# **combinePdfs**
+> CreateCombinedSubmissionResponse combinePdfs(combinePdfsData)
+
+Merge submission PDFs, template PDFs, or custom files
+
+### Example
+```java
+// Import classes:
+//import io.formapi.ApiClient;
+//import io.formapi.ApiException;
+//import io.formapi.Configuration;
+//import io.formapi.auth.*;
+//import io.formapi.PdfApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: api_token_basic
+HttpBasicAuth api_token_basic = (HttpBasicAuth) defaultClient.getAuthentication("api_token_basic");
+api_token_basic.setUsername("YOUR USERNAME");
+api_token_basic.setPassword("YOUR PASSWORD");
+
+PdfApi apiInstance = new PdfApi();
+CombinePdfsData combinePdfsData = new CombinePdfsData(); // CombinePdfsData | 
+try {
+    CreateCombinedSubmissionResponse result = apiInstance.combinePdfs(combinePdfsData);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PdfApi#combinePdfs");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **combinePdfsData** | [**CombinePdfsData**](CombinePdfsData.md)|  |
+
+### Return type
+
+[**CreateCombinedSubmissionResponse**](CreateCombinedSubmissionResponse.md)
+
+### Authorization
+
+[api_token_basic](../README.md#api_token_basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="combineSubmissions"></a>
 # **combineSubmissions**
 > CreateCombinedSubmissionResponse combineSubmissions(combinedSubmissionData)
@@ -171,6 +227,58 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**CreateCombinedSubmissionResponse**](CreateCombinedSubmissionResponse.md)
+
+### Authorization
+
+[api_token_basic](../README.md#api_token_basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="createCustomFileFromUpload"></a>
+# **createCustomFileFromUpload**
+> CreateCustomFileResponse createCustomFileFromUpload(createCustomFileData)
+
+Create a new custom file from a cached presign upload
+
+### Example
+```java
+// Import classes:
+//import io.formapi.ApiClient;
+//import io.formapi.ApiException;
+//import io.formapi.Configuration;
+//import io.formapi.auth.*;
+//import io.formapi.PdfApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: api_token_basic
+HttpBasicAuth api_token_basic = (HttpBasicAuth) defaultClient.getAuthentication("api_token_basic");
+api_token_basic.setUsername("YOUR USERNAME");
+api_token_basic.setPassword("YOUR PASSWORD");
+
+PdfApi apiInstance = new PdfApi();
+CreateCustomFileData createCustomFileData = new CreateCustomFileData(); // CreateCustomFileData | 
+try {
+    CreateCustomFileResponse result = apiInstance.createCustomFileFromUpload(createCustomFileData);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PdfApi#createCustomFileFromUpload");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createCustomFileData** | [**CreateCustomFileData**](CreateCustomFileData.md)|  |
+
+### Return type
+
+[**CreateCustomFileResponse**](CreateCustomFileResponse.md)
 
 ### Authorization
 
@@ -237,7 +345,7 @@ Name | Type | Description  | Notes
 # **createTemplate**
 > PendingTemplate createTemplate(templateDocument, templateName)
 
-Upload a new PDF template
+Upload a new PDF template with a file upload
 
 ### Example
 ```java
@@ -285,6 +393,58 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
+ - **Accept**: application/json
+
+<a name="createTemplateFromUpload"></a>
+# **createTemplateFromUpload**
+> PendingTemplate createTemplateFromUpload(createTemplateData)
+
+Create a new PDF template from a cached presign upload
+
+### Example
+```java
+// Import classes:
+//import io.formapi.ApiClient;
+//import io.formapi.ApiException;
+//import io.formapi.Configuration;
+//import io.formapi.auth.*;
+//import io.formapi.PdfApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: api_token_basic
+HttpBasicAuth api_token_basic = (HttpBasicAuth) defaultClient.getAuthentication("api_token_basic");
+api_token_basic.setUsername("YOUR USERNAME");
+api_token_basic.setPassword("YOUR PASSWORD");
+
+PdfApi apiInstance = new PdfApi();
+CreateTemplateData createTemplateData = new CreateTemplateData(); // CreateTemplateData | 
+try {
+    PendingTemplate result = apiInstance.createTemplateFromUpload(createTemplateData);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PdfApi#createTemplateFromUpload");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createTemplateData** | [**CreateTemplateData**](CreateTemplateData.md)|  |
+
+### Return type
+
+[**PendingTemplate**](PendingTemplate.md)
+
+### Authorization
+
+[api_token_basic](../README.md#api_token_basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="expireCombinedSubmission"></a>
@@ -393,7 +553,7 @@ Name | Type | Description  | Notes
 
 <a name="generatePDF"></a>
 # **generatePDF**
-> CreateSubmissionResponse generatePDF(templateId, createSubmissionData)
+> CreateSubmissionResponse generatePDF(templateId, submissionData)
 
 Generates a new PDF
 
@@ -415,9 +575,9 @@ api_token_basic.setPassword("YOUR PASSWORD");
 
 PdfApi apiInstance = new PdfApi();
 String templateId = tpl_000000000000000001; // String | 
-CreateSubmissionData createSubmissionData = new CreateSubmissionData(); // CreateSubmissionData | 
+SubmissionData submissionData = new SubmissionData(); // SubmissionData | 
 try {
-    CreateSubmissionResponse result = apiInstance.generatePDF(templateId, createSubmissionData);
+    CreateSubmissionResponse result = apiInstance.generatePDF(templateId, submissionData);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PdfApi#generatePDF");
@@ -430,7 +590,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **templateId** | **String**|  |
- **createSubmissionData** | [**CreateSubmissionData**](CreateSubmissionData.md)|  |
+ **submissionData** | [**SubmissionData**](SubmissionData.md)|  |
 
 ### Return type
 
@@ -549,6 +709,54 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="getPresignUrl"></a>
+# **getPresignUrl**
+> Map&lt;String, Object&gt; getPresignUrl()
+
+Get a presigned URL so that you can upload a file to our AWS S3 bucket
+
+### Example
+```java
+// Import classes:
+//import io.formapi.ApiClient;
+//import io.formapi.ApiException;
+//import io.formapi.Configuration;
+//import io.formapi.auth.*;
+//import io.formapi.PdfApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: api_token_basic
+HttpBasicAuth api_token_basic = (HttpBasicAuth) defaultClient.getAuthentication("api_token_basic");
+api_token_basic.setUsername("YOUR USERNAME");
+api_token_basic.setPassword("YOUR PASSWORD");
+
+PdfApi apiInstance = new PdfApi();
+try {
+    Map<String, Object> result = apiInstance.getPresignUrl();
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PdfApi#getPresignUrl");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+**Map&lt;String, Object&gt;**
+
+### Authorization
+
+[api_token_basic](../README.md#api_token_basic)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="getSubmission"></a>
 # **getSubmission**
 > Submission getSubmission(submissionId)
@@ -624,7 +832,7 @@ api_token_basic.setUsername("YOUR USERNAME");
 api_token_basic.setPassword("YOUR PASSWORD");
 
 PdfApi apiInstance = new PdfApi();
-String submissionBatchId = sba_000000000000000001; // String | 
+String submissionBatchId = sbb_000000000000000001; // String | 
 Boolean includeSubmissions = true; // Boolean | 
 try {
     SubmissionBatch result = apiInstance.getSubmissionBatch(submissionBatchId, includeSubmissions);

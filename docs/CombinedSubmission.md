@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **metadata** | **Object** |  |  [optional]
 **expired** | **Boolean** |  |  [optional]
 **expiresAt** | **String** |  |  [optional]
+**sourcePdfs** | **List&lt;Object&gt;** |  |  [optional]
 **downloadUrl** | **String** |  |  [optional]
 **submissionIds** | **List&lt;String&gt;** |  |  [optional]
 **id** | **String** |  |  [optional]

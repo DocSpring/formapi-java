@@ -20,19 +20,18 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.formapi.CreateSubmissionDataRequestData;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * CreateSubmissionDataBatchRequest
+ * SubmissionData
  */
-@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-18T08:05:56.906+07:00[Asia/Bangkok]")
-public class CreateSubmissionDataBatchRequest {
-  public static final String SERIALIZED_NAME_TEMPLATE_ID = "template_id";
-  @SerializedName(SERIALIZED_NAME_TEMPLATE_ID)
-  private String templateId = null;
-
+@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-23T04:05:17.704+07:00[Asia/Bangkok]")
+public class SubmissionData {
   public static final String SERIALIZED_NAME_TEST = "test";
   @SerializedName(SERIALIZED_NAME_TEST)
   private Boolean test = null;
@@ -53,25 +52,11 @@ public class CreateSubmissionDataBatchRequest {
   @SerializedName(SERIALIZED_NAME_METADATA)
   private Object metadata = null;
 
-  public CreateSubmissionDataBatchRequest templateId(String templateId) {
-    this.templateId = templateId;
-    return this;
-  }
+  public static final String SERIALIZED_NAME_DATA_REQUESTS = "data_requests";
+  @SerializedName(SERIALIZED_NAME_DATA_REQUESTS)
+  private List<CreateSubmissionDataRequestData> dataRequests = null;
 
-   /**
-   * Get templateId
-   * @return templateId
-  **/
-  @ApiModelProperty(required = true, value = "")
-  public String getTemplateId() {
-    return templateId;
-  }
-
-  public void setTemplateId(String templateId) {
-    this.templateId = templateId;
-  }
-
-  public CreateSubmissionDataBatchRequest test(Boolean test) {
+  public SubmissionData test(Boolean test) {
     this.test = test;
     return this;
   }
@@ -89,7 +74,7 @@ public class CreateSubmissionDataBatchRequest {
     this.test = test;
   }
 
-  public CreateSubmissionDataBatchRequest data(Object data) {
+  public SubmissionData data(Object data) {
     this.data = data;
     return this;
   }
@@ -107,7 +92,7 @@ public class CreateSubmissionDataBatchRequest {
     this.data = data;
   }
 
-  public CreateSubmissionDataBatchRequest html(String html) {
+  public SubmissionData html(String html) {
     this.html = html;
     return this;
   }
@@ -125,7 +110,7 @@ public class CreateSubmissionDataBatchRequest {
     this.html = html;
   }
 
-  public CreateSubmissionDataBatchRequest css(String css) {
+  public SubmissionData css(String css) {
     this.css = css;
     return this;
   }
@@ -143,7 +128,7 @@ public class CreateSubmissionDataBatchRequest {
     this.css = css;
   }
 
-  public CreateSubmissionDataBatchRequest metadata(Object metadata) {
+  public SubmissionData metadata(Object metadata) {
     this.metadata = metadata;
     return this;
   }
@@ -161,6 +146,32 @@ public class CreateSubmissionDataBatchRequest {
     this.metadata = metadata;
   }
 
+  public SubmissionData dataRequests(List<CreateSubmissionDataRequestData> dataRequests) {
+    this.dataRequests = dataRequests;
+    return this;
+  }
+
+  public SubmissionData addDataRequestsItem(CreateSubmissionDataRequestData dataRequestsItem) {
+    if (this.dataRequests == null) {
+      this.dataRequests = new ArrayList<CreateSubmissionDataRequestData>();
+    }
+    this.dataRequests.add(dataRequestsItem);
+    return this;
+  }
+
+   /**
+   * Get dataRequests
+   * @return dataRequests
+  **/
+  @ApiModelProperty(value = "")
+  public List<CreateSubmissionDataRequestData> getDataRequests() {
+    return dataRequests;
+  }
+
+  public void setDataRequests(List<CreateSubmissionDataRequestData> dataRequests) {
+    this.dataRequests = dataRequests;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -170,32 +181,32 @@ public class CreateSubmissionDataBatchRequest {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CreateSubmissionDataBatchRequest createSubmissionDataBatchRequest = (CreateSubmissionDataBatchRequest) o;
-    return Objects.equals(this.templateId, createSubmissionDataBatchRequest.templateId) &&
-        Objects.equals(this.test, createSubmissionDataBatchRequest.test) &&
-        Objects.equals(this.data, createSubmissionDataBatchRequest.data) &&
-        Objects.equals(this.html, createSubmissionDataBatchRequest.html) &&
-        Objects.equals(this.css, createSubmissionDataBatchRequest.css) &&
-        Objects.equals(this.metadata, createSubmissionDataBatchRequest.metadata);
+    SubmissionData submissionData = (SubmissionData) o;
+    return Objects.equals(this.test, submissionData.test) &&
+        Objects.equals(this.data, submissionData.data) &&
+        Objects.equals(this.html, submissionData.html) &&
+        Objects.equals(this.css, submissionData.css) &&
+        Objects.equals(this.metadata, submissionData.metadata) &&
+        Objects.equals(this.dataRequests, submissionData.dataRequests);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(templateId, test, data, html, css, metadata);
+    return Objects.hash(test, data, html, css, metadata, dataRequests);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CreateSubmissionDataBatchRequest {\n");
+    sb.append("class SubmissionData {\n");
     
-    sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
     sb.append("    test: ").append(toIndentedString(test)).append("\n");
     sb.append("    data: ").append(toIndentedString(data)).append("\n");
     sb.append("    html: ").append(toIndentedString(html)).append("\n");
     sb.append("    css: ").append(toIndentedString(css)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+    sb.append("    dataRequests: ").append(toIndentedString(dataRequests)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -27,17 +27,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * CombinedSubmissionData
+ * CombinePdfsData
  */
 @javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-23T04:05:17.704+07:00[Asia/Bangkok]")
-public class CombinedSubmissionData {
+public class CombinePdfsData {
   public static final String SERIALIZED_NAME_TEST = "test";
   @SerializedName(SERIALIZED_NAME_TEST)
   private Boolean test = null;
 
-  public static final String SERIALIZED_NAME_SUBMISSION_IDS = "submission_ids";
-  @SerializedName(SERIALIZED_NAME_SUBMISSION_IDS)
-  private List<String> submissionIds = new ArrayList<String>();
+  public static final String SERIALIZED_NAME_SOURCE_PDFS = "source_pdfs";
+  @SerializedName(SERIALIZED_NAME_SOURCE_PDFS)
+  private List<Object> sourcePdfs = new ArrayList<Object>();
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -47,7 +47,11 @@ public class CombinedSubmissionData {
   @SerializedName(SERIALIZED_NAME_EXPIRES_IN)
   private Integer expiresIn = null;
 
-  public CombinedSubmissionData test(Boolean test) {
+  public static final String SERIALIZED_NAME_DELETE_CUSTOM_FILES = "delete_custom_files";
+  @SerializedName(SERIALIZED_NAME_DELETE_CUSTOM_FILES)
+  private Boolean deleteCustomFiles = null;
+
+  public CombinePdfsData test(Boolean test) {
     this.test = test;
     return this;
   }
@@ -65,30 +69,30 @@ public class CombinedSubmissionData {
     this.test = test;
   }
 
-  public CombinedSubmissionData submissionIds(List<String> submissionIds) {
-    this.submissionIds = submissionIds;
+  public CombinePdfsData sourcePdfs(List<Object> sourcePdfs) {
+    this.sourcePdfs = sourcePdfs;
     return this;
   }
 
-  public CombinedSubmissionData addSubmissionIdsItem(String submissionIdsItem) {
-    this.submissionIds.add(submissionIdsItem);
+  public CombinePdfsData addSourcePdfsItem(Object sourcePdfsItem) {
+    this.sourcePdfs.add(sourcePdfsItem);
     return this;
   }
 
    /**
-   * Get submissionIds
-   * @return submissionIds
+   * Get sourcePdfs
+   * @return sourcePdfs
   **/
   @ApiModelProperty(required = true, value = "")
-  public List<String> getSubmissionIds() {
-    return submissionIds;
+  public List<Object> getSourcePdfs() {
+    return sourcePdfs;
   }
 
-  public void setSubmissionIds(List<String> submissionIds) {
-    this.submissionIds = submissionIds;
+  public void setSourcePdfs(List<Object> sourcePdfs) {
+    this.sourcePdfs = sourcePdfs;
   }
 
-  public CombinedSubmissionData metadata(Object metadata) {
+  public CombinePdfsData metadata(Object metadata) {
     this.metadata = metadata;
     return this;
   }
@@ -106,7 +110,7 @@ public class CombinedSubmissionData {
     this.metadata = metadata;
   }
 
-  public CombinedSubmissionData expiresIn(Integer expiresIn) {
+  public CombinePdfsData expiresIn(Integer expiresIn) {
     this.expiresIn = expiresIn;
     return this;
   }
@@ -124,6 +128,24 @@ public class CombinedSubmissionData {
     this.expiresIn = expiresIn;
   }
 
+  public CombinePdfsData deleteCustomFiles(Boolean deleteCustomFiles) {
+    this.deleteCustomFiles = deleteCustomFiles;
+    return this;
+  }
+
+   /**
+   * Get deleteCustomFiles
+   * @return deleteCustomFiles
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean getDeleteCustomFiles() {
+    return deleteCustomFiles;
+  }
+
+  public void setDeleteCustomFiles(Boolean deleteCustomFiles) {
+    this.deleteCustomFiles = deleteCustomFiles;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -133,28 +155,30 @@ public class CombinedSubmissionData {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CombinedSubmissionData combinedSubmissionData = (CombinedSubmissionData) o;
-    return Objects.equals(this.test, combinedSubmissionData.test) &&
-        Objects.equals(this.submissionIds, combinedSubmissionData.submissionIds) &&
-        Objects.equals(this.metadata, combinedSubmissionData.metadata) &&
-        Objects.equals(this.expiresIn, combinedSubmissionData.expiresIn);
+    CombinePdfsData combinePdfsData = (CombinePdfsData) o;
+    return Objects.equals(this.test, combinePdfsData.test) &&
+        Objects.equals(this.sourcePdfs, combinePdfsData.sourcePdfs) &&
+        Objects.equals(this.metadata, combinePdfsData.metadata) &&
+        Objects.equals(this.expiresIn, combinePdfsData.expiresIn) &&
+        Objects.equals(this.deleteCustomFiles, combinePdfsData.deleteCustomFiles);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(test, submissionIds, metadata, expiresIn);
+    return Objects.hash(test, sourcePdfs, metadata, expiresIn, deleteCustomFiles);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CombinedSubmissionData {\n");
+    sb.append("class CombinePdfsData {\n");
     
     sb.append("    test: ").append(toIndentedString(test)).append("\n");
-    sb.append("    submissionIds: ").append(toIndentedString(submissionIds)).append("\n");
+    sb.append("    sourcePdfs: ").append(toIndentedString(sourcePdfs)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    expiresIn: ").append(toIndentedString(expiresIn)).append("\n");
+    sb.append("    deleteCustomFiles: ").append(toIndentedString(deleteCustomFiles)).append("\n");
     sb.append("}");
     return sb.toString();
   }

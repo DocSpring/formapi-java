@@ -20,7 +20,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.formapi.SubmissionDataRequest;
+import io.formapi.CustomFile;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -28,13 +28,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * UpdateDataRequestResponse
+ * CreateCustomFileResponse
  */
 @javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-23T04:05:17.704+07:00[Asia/Bangkok]")
-public class UpdateDataRequestResponse {
-  public static final String SERIALIZED_NAME_DATA_REQUEST = "data_request";
-  @SerializedName(SERIALIZED_NAME_DATA_REQUEST)
-  private SubmissionDataRequest dataRequest = null;
+public class CreateCustomFileResponse {
+  public static final String SERIALIZED_NAME_CUSTOM_FILE = "custom_file";
+  @SerializedName(SERIALIZED_NAME_CUSTOM_FILE)
+  private CustomFile customFile = null;
 
   public static final String SERIALIZED_NAME_ERRORS = "errors";
   @SerializedName(SERIALIZED_NAME_ERRORS)
@@ -91,30 +91,30 @@ public class UpdateDataRequestResponse {
   @SerializedName(SERIALIZED_NAME_STATUS)
   private StatusEnum status = null;
 
-  public UpdateDataRequestResponse dataRequest(SubmissionDataRequest dataRequest) {
-    this.dataRequest = dataRequest;
+  public CreateCustomFileResponse customFile(CustomFile customFile) {
+    this.customFile = customFile;
     return this;
   }
 
    /**
-   * Get dataRequest
-   * @return dataRequest
+   * Get customFile
+   * @return customFile
   **/
   @ApiModelProperty(value = "")
-  public SubmissionDataRequest getDataRequest() {
-    return dataRequest;
+  public CustomFile getCustomFile() {
+    return customFile;
   }
 
-  public void setDataRequest(SubmissionDataRequest dataRequest) {
-    this.dataRequest = dataRequest;
+  public void setCustomFile(CustomFile customFile) {
+    this.customFile = customFile;
   }
 
-  public UpdateDataRequestResponse errors(List<String> errors) {
+  public CreateCustomFileResponse errors(List<String> errors) {
     this.errors = errors;
     return this;
   }
 
-  public UpdateDataRequestResponse addErrorsItem(String errorsItem) {
+  public CreateCustomFileResponse addErrorsItem(String errorsItem) {
     if (this.errors == null) {
       this.errors = new ArrayList<String>();
     }
@@ -135,7 +135,7 @@ public class UpdateDataRequestResponse {
     this.errors = errors;
   }
 
-  public UpdateDataRequestResponse status(StatusEnum status) {
+  public CreateCustomFileResponse status(StatusEnum status) {
     this.status = status;
     return this;
   }
@@ -162,24 +162,24 @@ public class UpdateDataRequestResponse {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    UpdateDataRequestResponse updateDataRequestResponse = (UpdateDataRequestResponse) o;
-    return Objects.equals(this.dataRequest, updateDataRequestResponse.dataRequest) &&
-        Objects.equals(this.errors, updateDataRequestResponse.errors) &&
-        Objects.equals(this.status, updateDataRequestResponse.status);
+    CreateCustomFileResponse createCustomFileResponse = (CreateCustomFileResponse) o;
+    return Objects.equals(this.customFile, createCustomFileResponse.customFile) &&
+        Objects.equals(this.errors, createCustomFileResponse.errors) &&
+        Objects.equals(this.status, createCustomFileResponse.status);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(dataRequest, errors, status);
+    return Objects.hash(customFile, errors, status);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class UpdateDataRequestResponse {\n");
+    sb.append("class CreateCustomFileResponse {\n");
     
-    sb.append("    dataRequest: ").append(toIndentedString(dataRequest)).append("\n");
+    sb.append("    customFile: ").append(toIndentedString(customFile)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("    status: ").append(toIndentedString(status)).append("\n");
     sb.append("}");

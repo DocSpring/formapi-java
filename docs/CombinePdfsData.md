@@ -1,14 +1,14 @@
 
-# CreateSubmissionDataBatchV1
+# CombinePdfsData
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **test** | **Boolean** |  |  [optional]
-**data** | **Object** |  | 
-**html** | **String** |  |  [optional]
-**css** | **String** |  |  [optional]
+**sourcePdfs** | **List&lt;Object&gt;** |  | 
 **metadata** | **Object** |  |  [optional]
+**expiresIn** | **Integer** |  |  [optional]
+**deleteCustomFiles** | **Boolean** |  |  [optional]
 
 
 

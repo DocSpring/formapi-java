@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * AuthenticationError
  */
-@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-18T08:05:56.906+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-23T04:05:17.704+07:00[Asia/Bangkok]")
 public class AuthenticationError {
   /**
    * Gets or Sets status

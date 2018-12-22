@@ -11,14 +11,16 @@ import okhttp3.MultipartBody;
 
 import io.formapi.AuthenticationError;
 import io.formapi.AuthenticationSuccessResponse;
+import io.formapi.CombinePdfsData;
 import io.formapi.CombinedSubmission;
 import io.formapi.CombinedSubmissionData;
 import io.formapi.CreateCombinedSubmissionResponse;
+import io.formapi.CreateCustomFileData;
+import io.formapi.CreateCustomFileResponse;
 import io.formapi.CreateSubmissionBatchResponse;
-import io.formapi.CreateSubmissionData;
-import io.formapi.CreateSubmissionDataBatchV1;
 import io.formapi.CreateSubmissionDataRequestTokenResponse;
 import io.formapi.CreateSubmissionResponse;
+import io.formapi.CreateTemplateData;
 import io.formapi.Error;
 import java.io.File;
 import io.formapi.InvalidRequest;
@@ -26,6 +28,7 @@ import io.formapi.PendingTemplate;
 import io.formapi.Submission;
 import io.formapi.SubmissionBatch;
 import io.formapi.SubmissionBatchData;
+import io.formapi.SubmissionData;
 import io.formapi.SubmissionDataRequest;
 import io.formapi.Template;
 import io.formapi.UpdateDataRequestResponse;
@@ -41,7 +44,7 @@ public interface PdfApi {
    * Generates multiple PDFs
    * 
    * @param templateId  (required)
-   * @param createSubmissionDataBatchV1  (required)
+   * @param requestBody  (required)
    * @return Call&lt;List&lt;CreateSubmissionResponse&gt;&gt;
    */
   @Headers({
@@ -49,7 +52,7 @@ public interface PdfApi {
   })
   @POST("templates/{template_id}/submissions/batch")
   Call<List<CreateSubmissionResponse>> batchGeneratePdfV1(
-    @retrofit2.http.Path("template_id") String templateId, @retrofit2.http.Body List<CreateSubmissionDataBatchV1> createSubmissionDataBatchV1
+    @retrofit2.http.Path("template_id") String templateId, @retrofit2.http.Body List<Object> requestBody
   );
 
   /**
@@ -67,6 +70,20 @@ public interface PdfApi {
   );
 
   /**
+   * Merge submission PDFs, template PDFs, or custom files
+   * 
+   * @param combinePdfsData  (required)
+   * @return Call&lt;CreateCombinedSubmissionResponse&gt;
+   */
+  @Headers({
+    "Content-Type:application/json"
+  })
+  @POST("combined_submissions?v=2")
+  Call<CreateCombinedSubmissionResponse> combinePdfs(
+    @retrofit2.http.Body CombinePdfsData combinePdfsData
+  );
+
+  /**
    * Merge generated PDFs together
    * 
    * @param combinedSubmissionData  (required)
@@ -81,6 +98,20 @@ public interface PdfApi {
   );
 
   /**
+   * Create a new custom file from a cached presign upload
+   * 
+   * @param createCustomFileData  (required)
+   * @return Call&lt;CreateCustomFileResponse&gt;
+   */
+  @Headers({
+    "Content-Type:application/json"
+  })
+  @POST("custom_files")
+  Call<CreateCustomFileResponse> createCustomFileFromUpload(
+    @retrofit2.http.Body CreateCustomFileData createCustomFileData
+  );
+
+  /**
    * Creates a new data request token for form authentication
    * 
    * @param dataRequestId  (required)
@@ -92,7 +123,7 @@ public interface PdfApi {
   );
 
   /**
-   * Upload a new PDF template
+   * Upload a new PDF template with a file upload
    * 
    * @param templateDocument  (required)
    * @param templateName  (required)
@@ -102,6 +133,20 @@ public interface PdfApi {
   @POST("templates")
   Call<PendingTemplate> createTemplate(
     @retrofit2.http.Part("template[document]") MultipartBody.Part templateDocument, @retrofit2.http.Part("template[name]") String templateName
+  );
+
+  /**
+   * Create a new PDF template from a cached presign upload
+   * 
+   * @param createTemplateData  (required)
+   * @return Call&lt;PendingTemplate&gt;
+   */
+  @Headers({
+    "Content-Type:application/json"
+  })
+  @POST("templates?v=2")
+  Call<PendingTemplate> createTemplateFromUpload(
+    @retrofit2.http.Body CreateTemplateData createTemplateData
   );
 
   /**
@@ -130,7 +175,7 @@ public interface PdfApi {
    * Generates a new PDF
    * 
    * @param templateId  (required)
-   * @param createSubmissionData  (required)
+   * @param submissionData  (required)
    * @return Call&lt;CreateSubmissionResponse&gt;
    */
   @Headers({
@@ -138,7 +183,7 @@ public interface PdfApi {
   })
   @POST("templates/{template_id}/submissions")
   Call<CreateSubmissionResponse> generatePDF(
-    @retrofit2.http.Path("template_id") String templateId, @retrofit2.http.Body CreateSubmissionData createSubmissionData
+    @retrofit2.http.Path("template_id") String templateId, @retrofit2.http.Body SubmissionData submissionData
   );
 
   /**
@@ -162,6 +207,15 @@ public interface PdfApi {
   Call<SubmissionDataRequest> getDataRequest(
     @retrofit2.http.Path("data_request_id") String dataRequestId
   );
+
+  /**
+   * Get a presigned URL so that you can upload a file to our AWS S3 bucket
+   * 
+   * @return Call&lt;Map&lt;String, Object&gt;&gt;
+   */
+  @GET("uploads/presign")
+  Call<Map<String, Object>> getPresignUrl();
+    
 
   /**
    * Check the status of a PDF
