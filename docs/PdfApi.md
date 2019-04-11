@@ -759,7 +759,7 @@ This endpoint does not need any parameter.
 
 <a name="getSubmission"></a>
 # **getSubmission**
-> Submission getSubmission(submissionId)
+> Submission getSubmission(submissionId, includeData)
 
 Check the status of a PDF
 
@@ -781,8 +781,9 @@ api_token_basic.setPassword("YOUR PASSWORD");
 
 PdfApi apiInstance = new PdfApi();
 String submissionId = sub_000000000000000001; // String | 
+Boolean includeData = false; // Boolean | 
 try {
-    Submission result = apiInstance.getSubmission(submissionId);
+    Submission result = apiInstance.getSubmission(submissionId, includeData);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PdfApi#getSubmission");
@@ -795,6 +796,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **submissionId** | **String**|  |
+ **includeData** | **Boolean**|  | [optional]
 
 ### Return type
 

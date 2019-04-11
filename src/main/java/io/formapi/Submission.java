@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * Submission
  */
-@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-23T04:05:17.704+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2019-04-11T21:22:41.142+07:00[Asia/Bangkok]")
 public class Submission {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -40,6 +40,10 @@ public class Submission {
   public static final String SERIALIZED_NAME_TEST = "test";
   @SerializedName(SERIALIZED_NAME_TEST)
   private Boolean test = null;
+
+  public static final String SERIALIZED_NAME_EDITABLE = "editable";
+  @SerializedName(SERIALIZED_NAME_EDITABLE)
+  private Boolean editable = null;
 
   public static final String SERIALIZED_NAME_EXPIRED = "expired";
   @SerializedName(SERIALIZED_NAME_EXPIRED)
@@ -70,7 +74,9 @@ public class Submission {
     
     IMAGE_PROCESSING_FAILED("image_processing_failed"),
     
-    WAITING_FOR_DATA_REQUESTS("waiting_for_data_requests");
+    WAITING_FOR_DATA_REQUESTS("waiting_for_data_requests"),
+    
+    LIQUID_SYNTAX_ERROR("liquid_syntax_error");
 
     private String value;
 
@@ -168,6 +174,24 @@ public class Submission {
 
   public void setTest(Boolean test) {
     this.test = test;
+  }
+
+  public Submission editable(Boolean editable) {
+    this.editable = editable;
+    return this;
+  }
+
+   /**
+   * Get editable
+   * @return editable
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean getEditable() {
+    return editable;
+  }
+
+  public void setEditable(Boolean editable) {
+    this.editable = editable;
   }
 
   public Submission expired(Boolean expired) {
@@ -360,6 +384,7 @@ public class Submission {
     Submission submission = (Submission) o;
     return Objects.equals(this.id, submission.id) &&
         Objects.equals(this.test, submission.test) &&
+        Objects.equals(this.editable, submission.editable) &&
         Objects.equals(this.expired, submission.expired) &&
         Objects.equals(this.expiresAt, submission.expiresAt) &&
         Objects.equals(this.processedAt, submission.processedAt) &&
@@ -373,7 +398,7 @@ public class Submission {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, test, expired, expiresAt, processedAt, state, metadata, downloadUrl, batchId, dataRequests, actions);
+    return Objects.hash(id, test, editable, expired, expiresAt, processedAt, state, metadata, downloadUrl, batchId, dataRequests, actions);
   }
 
 
@@ -384,6 +409,7 @@ public class Submission {
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    test: ").append(toIndentedString(test)).append("\n");
+    sb.append("    editable: ").append(toIndentedString(editable)).append("\n");
     sb.append("    expired: ").append(toIndentedString(expired)).append("\n");
     sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
     sb.append("    processedAt: ").append(toIndentedString(processedAt)).append("\n");

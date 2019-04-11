@@ -5,17 +5,18 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **expirationInterval** | [**ExpirationIntervalEnum**](#ExpirationIntervalEnum) |  |  [optional]
-**publicWebForm** | **Boolean** |  |  [optional]
 **webhookUrl** | **String** |  |  [optional]
-**expireSubmissions** | **Boolean** |  |  [optional]
 **expireAfter** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
 **allowAdditionalProperties** | **Boolean** |  |  [optional]
 **document** | [**Templatesv2TemplateDocument**](Templatesv2TemplateDocument.md) |  |  [optional]
-**name** | **String** |  |  [optional]
 **publicSubmissions** | **Boolean** |  |  [optional]
 **slackWebhookUrl** | **String** |  |  [optional]
-**redirectUrl** | **String** |  |  [optional]
 **blockchainTimestampVerification** | **Boolean** |  |  [optional]
+**publicWebForm** | **Boolean** |  |  [optional]
+**editableSubmissions** | **Boolean** |  |  [optional]
+**expireSubmissions** | **Boolean** |  |  [optional]
+**name** | **String** |  |  [optional]
+**redirectUrl** | **String** |  |  [optional]
 
 
 <a name="ExpirationIntervalEnum"></a>

@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * PendingTemplate
  */
-@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-23T04:05:17.704+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2019-04-11T21:22:41.142+07:00[Asia/Bangkok]")
 public class PendingTemplate {
   /**
    * Gets or Sets expirationInterval
@@ -110,6 +110,10 @@ public class PendingTemplate {
   public static final String SERIALIZED_NAME_PUBLIC_WEB_FORM = "public_web_form";
   @SerializedName(SERIALIZED_NAME_PUBLIC_WEB_FORM)
   private Boolean publicWebForm = null;
+
+  public static final String SERIALIZED_NAME_EDITABLE_SUBMISSIONS = "editable_submissions";
+  @SerializedName(SERIALIZED_NAME_EDITABLE_SUBMISSIONS)
+  private Boolean editableSubmissions = null;
 
   public static final String SERIALIZED_NAME_EXPIRE_SUBMISSIONS = "expire_submissions";
   @SerializedName(SERIALIZED_NAME_EXPIRE_SUBMISSIONS)
@@ -275,6 +279,24 @@ public class PendingTemplate {
     this.publicWebForm = publicWebForm;
   }
 
+  public PendingTemplate editableSubmissions(Boolean editableSubmissions) {
+    this.editableSubmissions = editableSubmissions;
+    return this;
+  }
+
+   /**
+   * Get editableSubmissions
+   * @return editableSubmissions
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean getEditableSubmissions() {
+    return editableSubmissions;
+  }
+
+  public void setEditableSubmissions(Boolean editableSubmissions) {
+    this.editableSubmissions = editableSubmissions;
+  }
+
   public PendingTemplate expireSubmissions(Boolean expireSubmissions) {
     this.expireSubmissions = expireSubmissions;
     return this;
@@ -383,6 +405,7 @@ public class PendingTemplate {
         Objects.equals(this.slackWebhookUrl, pendingTemplate.slackWebhookUrl) &&
         Objects.equals(this.blockchainTimestampVerification, pendingTemplate.blockchainTimestampVerification) &&
         Objects.equals(this.publicWebForm, pendingTemplate.publicWebForm) &&
+        Objects.equals(this.editableSubmissions, pendingTemplate.editableSubmissions) &&
         Objects.equals(this.expireSubmissions, pendingTemplate.expireSubmissions) &&
         Objects.equals(this.name, pendingTemplate.name) &&
         Objects.equals(this.templateType, pendingTemplate.templateType) &&
@@ -392,7 +415,7 @@ public class PendingTemplate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(expirationInterval, webhookUrl, expireAfter, allowAdditionalProperties, publicSubmissions, slackWebhookUrl, blockchainTimestampVerification, publicWebForm, expireSubmissions, name, templateType, id, redirectUrl);
+    return Objects.hash(expirationInterval, webhookUrl, expireAfter, allowAdditionalProperties, publicSubmissions, slackWebhookUrl, blockchainTimestampVerification, publicWebForm, editableSubmissions, expireSubmissions, name, templateType, id, redirectUrl);
   }
 
 
@@ -409,6 +432,7 @@ public class PendingTemplate {
     sb.append("    slackWebhookUrl: ").append(toIndentedString(slackWebhookUrl)).append("\n");
     sb.append("    blockchainTimestampVerification: ").append(toIndentedString(blockchainTimestampVerification)).append("\n");
     sb.append("    publicWebForm: ").append(toIndentedString(publicWebForm)).append("\n");
+    sb.append("    editableSubmissions: ").append(toIndentedString(editableSubmissions)).append("\n");
     sb.append("    expireSubmissions: ").append(toIndentedString(expireSubmissions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    templateType: ").append(toIndentedString(templateType)).append("\n");

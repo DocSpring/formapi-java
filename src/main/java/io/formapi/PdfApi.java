@@ -221,11 +221,12 @@ public interface PdfApi {
    * Check the status of a PDF
    * 
    * @param submissionId  (required)
+   * @param includeData  (optional)
    * @return Call&lt;Submission&gt;
    */
   @GET("submissions/{submission_id}")
   Call<Submission> getSubmission(
-    @retrofit2.http.Path("submission_id") String submissionId
+    @retrofit2.http.Path("submission_id") String submissionId, @retrofit2.http.Query("include_data") Boolean includeData
   );
 
   /**

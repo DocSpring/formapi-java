@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
 **test** | **Boolean** |  | 
+**editable** | **Boolean** |  |  [optional]
 **expired** | **Boolean** |  | 
 **expiresAt** | **String** |  |  [optional]
 **processedAt** | **String** |  |  [optional]
@@ -28,6 +29,7 @@ ERROR | &quot;error&quot;
 IMAGE_DOWNLOAD_FAILED | &quot;image_download_failed&quot;
 IMAGE_PROCESSING_FAILED | &quot;image_processing_failed&quot;
 WAITING_FOR_DATA_REQUESTS | &quot;waiting_for_data_requests&quot;
+LIQUID_SYNTAX_ERROR | &quot;liquid_syntax_error&quot;
 
 
 

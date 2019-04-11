@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * Template
  */
-@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2018-12-23T04:05:17.704+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2019-04-11T21:22:41.142+07:00[Asia/Bangkok]")
 public class Template {
   /**
    * Gets or Sets expirationInterval
@@ -112,6 +112,10 @@ public class Template {
   public static final String SERIALIZED_NAME_PUBLIC_WEB_FORM = "public_web_form";
   @SerializedName(SERIALIZED_NAME_PUBLIC_WEB_FORM)
   private Boolean publicWebForm = null;
+
+  public static final String SERIALIZED_NAME_EDITABLE_SUBMISSIONS = "editable_submissions";
+  @SerializedName(SERIALIZED_NAME_EDITABLE_SUBMISSIONS)
+  private Boolean editableSubmissions = null;
 
   public static final String SERIALIZED_NAME_EXPIRE_SUBMISSIONS = "expire_submissions";
   @SerializedName(SERIALIZED_NAME_EXPIRE_SUBMISSIONS)
@@ -281,6 +285,24 @@ public class Template {
     this.publicWebForm = publicWebForm;
   }
 
+  public Template editableSubmissions(Boolean editableSubmissions) {
+    this.editableSubmissions = editableSubmissions;
+    return this;
+  }
+
+   /**
+   * Get editableSubmissions
+   * @return editableSubmissions
+  **/
+  @ApiModelProperty(value = "")
+  public Boolean getEditableSubmissions() {
+    return editableSubmissions;
+  }
+
+  public void setEditableSubmissions(Boolean editableSubmissions) {
+    this.editableSubmissions = editableSubmissions;
+  }
+
   public Template expireSubmissions(Boolean expireSubmissions) {
     this.expireSubmissions = expireSubmissions;
     return this;
@@ -415,6 +437,7 @@ public class Template {
         Objects.equals(this.slackWebhookUrl, template.slackWebhookUrl) &&
         Objects.equals(this.blockchainTimestampVerification, template.blockchainTimestampVerification) &&
         Objects.equals(this.publicWebForm, template.publicWebForm) &&
+        Objects.equals(this.editableSubmissions, template.editableSubmissions) &&
         Objects.equals(this.expireSubmissions, template.expireSubmissions) &&
         Objects.equals(this.name, template.name) &&
         Objects.equals(this.templateType, template.templateType) &&
@@ -425,7 +448,7 @@ public class Template {
 
   @Override
   public int hashCode() {
-    return Objects.hash(expirationInterval, webhookUrl, expireAfter, allowAdditionalProperties, publicSubmissions, slackWebhookUrl, blockchainTimestampVerification, publicWebForm, expireSubmissions, name, templateType, id, pageDimensions, redirectUrl);
+    return Objects.hash(expirationInterval, webhookUrl, expireAfter, allowAdditionalProperties, publicSubmissions, slackWebhookUrl, blockchainTimestampVerification, publicWebForm, editableSubmissions, expireSubmissions, name, templateType, id, pageDimensions, redirectUrl);
   }
 
 
@@ -442,6 +465,7 @@ public class Template {
     sb.append("    slackWebhookUrl: ").append(toIndentedString(slackWebhookUrl)).append("\n");
     sb.append("    blockchainTimestampVerification: ").append(toIndentedString(blockchainTimestampVerification)).append("\n");
     sb.append("    publicWebForm: ").append(toIndentedString(publicWebForm)).append("\n");
+    sb.append("    editableSubmissions: ").append(toIndentedString(editableSubmissions)).append("\n");
     sb.append("    expireSubmissions: ").append(toIndentedString(expireSubmissions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    templateType: ").append(toIndentedString(templateType)).append("\n");

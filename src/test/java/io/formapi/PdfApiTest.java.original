@@ -223,7 +223,8 @@ public class PdfApiTest {
     @Test
     public void getSubmissionTest() {
         String submissionId = null;
-        // Submission response = api.getSubmission(submissionId);
+        Boolean includeData = null;
+        // Submission response = api.getSubmission(submissionId, includeData);
 
         // TODO: test validations
     }
