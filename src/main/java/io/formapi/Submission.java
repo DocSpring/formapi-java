@@ -31,11 +31,15 @@ import java.util.List;
 /**
  * Submission
  */
-@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2019-04-11T21:22:41.142+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2019-06-22T05:53:05.221+07:00[Asia/Bangkok]")
 public class Submission {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
   private String id = null;
+
+  public static final String SERIALIZED_NAME_TEMPLATE_ID = "template_id";
+  @SerializedName(SERIALIZED_NAME_TEMPLATE_ID)
+  private String templateId = null;
 
   public static final String SERIALIZED_NAME_TEST = "test";
   @SerializedName(SERIALIZED_NAME_TEST)
@@ -76,7 +80,11 @@ public class Submission {
     
     WAITING_FOR_DATA_REQUESTS("waiting_for_data_requests"),
     
-    LIQUID_SYNTAX_ERROR("liquid_syntax_error");
+    LIQUID_SYNTAX_ERROR("liquid_syntax_error"),
+    
+    ACCOUNT_SUSPENDED("account_suspended"),
+    
+    LICENSE_REVOKED("license_revoked");
 
     private String value;
 
@@ -156,6 +164,24 @@ public class Submission {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public Submission templateId(String templateId) {
+    this.templateId = templateId;
+    return this;
+  }
+
+   /**
+   * Get templateId
+   * @return templateId
+  **/
+  @ApiModelProperty(value = "")
+  public String getTemplateId() {
+    return templateId;
+  }
+
+  public void setTemplateId(String templateId) {
+    this.templateId = templateId;
   }
 
   public Submission test(Boolean test) {
@@ -383,6 +409,7 @@ public class Submission {
     }
     Submission submission = (Submission) o;
     return Objects.equals(this.id, submission.id) &&
+        Objects.equals(this.templateId, submission.templateId) &&
         Objects.equals(this.test, submission.test) &&
         Objects.equals(this.editable, submission.editable) &&
         Objects.equals(this.expired, submission.expired) &&
@@ -398,7 +425,7 @@ public class Submission {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, test, editable, expired, expiresAt, processedAt, state, metadata, downloadUrl, batchId, dataRequests, actions);
+    return Objects.hash(id, templateId, test, editable, expired, expiresAt, processedAt, state, metadata, downloadUrl, batchId, dataRequests, actions);
   }
 
 
@@ -408,6 +435,7 @@ public class Submission {
     sb.append("class Submission {\n");
     
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
+    sb.append("    templateId: ").append(toIndentedString(templateId)).append("\n");
     sb.append("    test: ").append(toIndentedString(test)).append("\n");
     sb.append("    editable: ").append(toIndentedString(editable)).append("\n");
     sb.append("    expired: ").append(toIndentedString(expired)).append("\n");

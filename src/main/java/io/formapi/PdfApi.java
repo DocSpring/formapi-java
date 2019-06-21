@@ -266,13 +266,14 @@ public interface PdfApi {
   /**
    * Get a list of all templates
    * 
+   * @param query Search By Name (optional)
    * @param page Default: 1 (optional)
    * @param perPage Default: 50 (optional)
    * @return Call&lt;List&lt;Template&gt;&gt;
    */
   @GET("templates")
-  Call<List<Template>> getTemplates(
-    @retrofit2.http.Query("page") Integer page, @retrofit2.http.Query("per_page") Integer perPage
+  Call<List<Template>> listTemplates(
+    @retrofit2.http.Query("query") String query, @retrofit2.http.Query("page") Integer page, @retrofit2.http.Query("per_page") Integer perPage
   );
 
   /**

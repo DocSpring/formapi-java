@@ -271,10 +271,11 @@ public class PdfApiTest {
      * 
      */
     @Test
-    public void getTemplatesTest() {
+    public void listTemplatesTest() {
+        String query = null;
         Integer page = null;
         Integer perPage = null;
-        // List<Template> response = api.getTemplates(page, perPage);
+        // List<Template> response = api.listTemplates(query, page, perPage);
 
         // TODO: test validations
     }

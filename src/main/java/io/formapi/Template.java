@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * Template
  */
-@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2019-04-11T21:22:41.142+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2019-06-22T05:53:05.221+07:00[Asia/Bangkok]")
 public class Template {
   /**
    * Gets or Sets expirationInterval
@@ -104,10 +104,6 @@ public class Template {
   public static final String SERIALIZED_NAME_SLACK_WEBHOOK_URL = "slack_webhook_url";
   @SerializedName(SERIALIZED_NAME_SLACK_WEBHOOK_URL)
   private String slackWebhookUrl = null;
-
-  public static final String SERIALIZED_NAME_BLOCKCHAIN_TIMESTAMP_VERIFICATION = "blockchain_timestamp_verification";
-  @SerializedName(SERIALIZED_NAME_BLOCKCHAIN_TIMESTAMP_VERIFICATION)
-  private Boolean blockchainTimestampVerification = null;
 
   public static final String SERIALIZED_NAME_PUBLIC_WEB_FORM = "public_web_form";
   @SerializedName(SERIALIZED_NAME_PUBLIC_WEB_FORM)
@@ -247,24 +243,6 @@ public class Template {
 
   public void setSlackWebhookUrl(String slackWebhookUrl) {
     this.slackWebhookUrl = slackWebhookUrl;
-  }
-
-  public Template blockchainTimestampVerification(Boolean blockchainTimestampVerification) {
-    this.blockchainTimestampVerification = blockchainTimestampVerification;
-    return this;
-  }
-
-   /**
-   * Get blockchainTimestampVerification
-   * @return blockchainTimestampVerification
-  **/
-  @ApiModelProperty(value = "")
-  public Boolean getBlockchainTimestampVerification() {
-    return blockchainTimestampVerification;
-  }
-
-  public void setBlockchainTimestampVerification(Boolean blockchainTimestampVerification) {
-    this.blockchainTimestampVerification = blockchainTimestampVerification;
   }
 
   public Template publicWebForm(Boolean publicWebForm) {
@@ -435,7 +413,6 @@ public class Template {
         Objects.equals(this.allowAdditionalProperties, template.allowAdditionalProperties) &&
         Objects.equals(this.publicSubmissions, template.publicSubmissions) &&
         Objects.equals(this.slackWebhookUrl, template.slackWebhookUrl) &&
-        Objects.equals(this.blockchainTimestampVerification, template.blockchainTimestampVerification) &&
         Objects.equals(this.publicWebForm, template.publicWebForm) &&
         Objects.equals(this.editableSubmissions, template.editableSubmissions) &&
         Objects.equals(this.expireSubmissions, template.expireSubmissions) &&
@@ -448,7 +425,7 @@ public class Template {
 
   @Override
   public int hashCode() {
-    return Objects.hash(expirationInterval, webhookUrl, expireAfter, allowAdditionalProperties, publicSubmissions, slackWebhookUrl, blockchainTimestampVerification, publicWebForm, editableSubmissions, expireSubmissions, name, templateType, id, pageDimensions, redirectUrl);
+    return Objects.hash(expirationInterval, webhookUrl, expireAfter, allowAdditionalProperties, publicSubmissions, slackWebhookUrl, publicWebForm, editableSubmissions, expireSubmissions, name, templateType, id, pageDimensions, redirectUrl);
   }
 
 
@@ -463,7 +440,6 @@ public class Template {
     sb.append("    allowAdditionalProperties: ").append(toIndentedString(allowAdditionalProperties)).append("\n");
     sb.append("    publicSubmissions: ").append(toIndentedString(publicSubmissions)).append("\n");
     sb.append("    slackWebhookUrl: ").append(toIndentedString(slackWebhookUrl)).append("\n");
-    sb.append("    blockchainTimestampVerification: ").append(toIndentedString(blockchainTimestampVerification)).append("\n");
     sb.append("    publicWebForm: ").append(toIndentedString(publicWebForm)).append("\n");
     sb.append("    editableSubmissions: ").append(toIndentedString(editableSubmissions)).append("\n");
     sb.append("    expireSubmissions: ").append(toIndentedString(expireSubmissions)).append("\n");

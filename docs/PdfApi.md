@@ -22,7 +22,7 @@ Method | HTTP request | Description
 [**getSubmissionBatch**](PdfApi.md#getSubmissionBatch) | **GET** submissions/batches/{submission_batch_id} | Check the status of a submission batch job
 [**getTemplate**](PdfApi.md#getTemplate) | **GET** templates/{template_id} | Check the status of an uploaded template
 [**getTemplateSchema**](PdfApi.md#getTemplateSchema) | **GET** templates/{template_id}/schema | Fetch the JSON schema for a template
-[**getTemplates**](PdfApi.md#getTemplates) | **GET** templates | Get a list of all templates
+[**listTemplates**](PdfApi.md#listTemplates) | **GET** templates | Get a list of all templates
 [**testAuthentication**](PdfApi.md#testAuthentication) | **GET** authentication | Test Authentication
 [**updateDataRequest**](PdfApi.md#updateDataRequest) | **PUT** data_requests/{data_request_id} | Update a submission data request
 
@@ -969,9 +969,9 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
-<a name="getTemplates"></a>
-# **getTemplates**
-> List&lt;Template&gt; getTemplates(page, perPage)
+<a name="listTemplates"></a>
+# **listTemplates**
+> List&lt;Template&gt; listTemplates(query, page, perPage)
 
 Get a list of all templates
 
@@ -992,13 +992,14 @@ api_token_basic.setUsername("YOUR USERNAME");
 api_token_basic.setPassword("YOUR PASSWORD");
 
 PdfApi apiInstance = new PdfApi();
+String query = 2; // String | Search By Name
 Integer page = 2; // Integer | Default: 1
 Integer perPage = 1; // Integer | Default: 50
 try {
-    List<Template> result = apiInstance.getTemplates(page, perPage);
+    List<Template> result = apiInstance.listTemplates(query, page, perPage);
     System.out.println(result);
 } catch (ApiException e) {
-    System.err.println("Exception when calling PdfApi#getTemplates");
+    System.err.println("Exception when calling PdfApi#listTemplates");
     e.printStackTrace();
 }
 ```
@@ -1007,6 +1008,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **query** | **String**| Search By Name | [optional]
  **page** | **Integer**| Default: 1 | [optional]
  **perPage** | **Integer**| Default: 50 | [optional]
 
