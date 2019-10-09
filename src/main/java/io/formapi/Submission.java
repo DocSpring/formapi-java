@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * Submission
  */
-@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2019-10-10T00:08:57.730+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2019-10-10T00:43:09.652+07:00[Asia/Bangkok]")
 public class Submission {
   public static final String SERIALIZED_NAME_ID = "id";
   @SerializedName(SERIALIZED_NAME_ID)
@@ -135,6 +135,10 @@ public class Submission {
   public static final String SERIALIZED_NAME_DOWNLOAD_URL = "download_url";
   @SerializedName(SERIALIZED_NAME_DOWNLOAD_URL)
   private String downloadUrl = null;
+
+  public static final String SERIALIZED_NAME_PERMANENT_DOWNLOAD_URL = "permanent_download_url";
+  @SerializedName(SERIALIZED_NAME_PERMANENT_DOWNLOAD_URL)
+  private String permanentDownloadUrl = null;
 
   public static final String SERIALIZED_NAME_BATCH_ID = "batch_id";
   @SerializedName(SERIALIZED_NAME_BATCH_ID)
@@ -328,6 +332,24 @@ public class Submission {
     this.downloadUrl = downloadUrl;
   }
 
+  public Submission permanentDownloadUrl(String permanentDownloadUrl) {
+    this.permanentDownloadUrl = permanentDownloadUrl;
+    return this;
+  }
+
+   /**
+   * Get permanentDownloadUrl
+   * @return permanentDownloadUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getPermanentDownloadUrl() {
+    return permanentDownloadUrl;
+  }
+
+  public void setPermanentDownloadUrl(String permanentDownloadUrl) {
+    this.permanentDownloadUrl = permanentDownloadUrl;
+  }
+
   public Submission batchId(String batchId) {
     this.batchId = batchId;
     return this;
@@ -418,6 +440,7 @@ public class Submission {
         Objects.equals(this.state, submission.state) &&
         Objects.equals(this.metadata, submission.metadata) &&
         Objects.equals(this.downloadUrl, submission.downloadUrl) &&
+        Objects.equals(this.permanentDownloadUrl, submission.permanentDownloadUrl) &&
         Objects.equals(this.batchId, submission.batchId) &&
         Objects.equals(this.dataRequests, submission.dataRequests) &&
         Objects.equals(this.actions, submission.actions);
@@ -425,7 +448,7 @@ public class Submission {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, templateId, test, editable, expired, expiresAt, processedAt, state, metadata, downloadUrl, batchId, dataRequests, actions);
+    return Objects.hash(id, templateId, test, editable, expired, expiresAt, processedAt, state, metadata, downloadUrl, permanentDownloadUrl, batchId, dataRequests, actions);
   }
 
 
@@ -444,6 +467,7 @@ public class Submission {
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    downloadUrl: ").append(toIndentedString(downloadUrl)).append("\n");
+    sb.append("    permanentDownloadUrl: ").append(toIndentedString(permanentDownloadUrl)).append("\n");
     sb.append("    batchId: ").append(toIndentedString(batchId)).append("\n");
     sb.append("    dataRequests: ").append(toIndentedString(dataRequests)).append("\n");
     sb.append("    actions: ").append(toIndentedString(actions)).append("\n");
