@@ -29,7 +29,7 @@ import java.math.BigDecimal;
 /**
  * Templatesv2Template
  */
-@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2019-10-10T00:43:09.652+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2019-10-10T00:49:37.967+07:00[Asia/Bangkok]")
 public class Templatesv2Template {
   /**
    * Gets or Sets expirationInterval

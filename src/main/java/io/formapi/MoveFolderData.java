@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * MoveFolderData
  */
-@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2019-10-10T00:43:09.652+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2019-10-10T00:49:37.967+07:00[Asia/Bangkok]")
 public class MoveFolderData {
   public static final String SERIALIZED_NAME_PARENT_FOLDER_ID = "parent_folder_id";
   @SerializedName(SERIALIZED_NAME_PARENT_FOLDER_ID)
