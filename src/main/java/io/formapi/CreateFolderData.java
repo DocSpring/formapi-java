@@ -20,57 +20,36 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.formapi.FoldersFolder;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CustomFile
+ * CreateFolderData
  */
 @javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2019-10-10T00:08:57.730+07:00[Asia/Bangkok]")
-public class CustomFile {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id = null;
+public class CreateFolderData {
+  public static final String SERIALIZED_NAME_FOLDER = "folder";
+  @SerializedName(SERIALIZED_NAME_FOLDER)
+  private FoldersFolder folder = null;
 
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
-  private String url = null;
-
-  public CustomFile id(String id) {
-    this.id = id;
+  public CreateFolderData folder(FoldersFolder folder) {
+    this.folder = folder;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get folder
+   * @return folder
   **/
-  @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  @ApiModelProperty(required = true, value = "")
+  public FoldersFolder getFolder() {
+    return folder;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public CustomFile url(String url) {
-    this.url = url;
-    return this;
-  }
-
-   /**
-   * Get url
-   * @return url
-  **/
-  @ApiModelProperty(value = "")
-  public String getUrl() {
-    return url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
+  public void setFolder(FoldersFolder folder) {
+    this.folder = folder;
   }
 
 
@@ -82,24 +61,22 @@ public class CustomFile {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CustomFile customFile = (CustomFile) o;
-    return Objects.equals(this.id, customFile.id) &&
-        Objects.equals(this.url, customFile.url);
+    CreateFolderData createFolderData = (CreateFolderData) o;
+    return Objects.equals(this.folder, createFolderData.folder);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, url);
+    return Objects.hash(folder);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CustomFile {\n");
+    sb.append("class CreateFolderData {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    folder: ").append(toIndentedString(folder)).append("\n");
     sb.append("}");
     return sb.toString();
   }

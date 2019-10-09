@@ -10,8 +10,10 @@ Method | HTTP request | Description
 [**combineSubmissions**](PdfApi.md#combineSubmissions) | **POST** combined_submissions | Merge generated PDFs together
 [**createCustomFileFromUpload**](PdfApi.md#createCustomFileFromUpload) | **POST** custom_files | Create a new custom file from a cached presign upload
 [**createDataRequestToken**](PdfApi.md#createDataRequestToken) | **POST** data_requests/{data_request_id}/tokens | Creates a new data request token for form authentication
+[**createFolder**](PdfApi.md#createFolder) | **POST** folders/ | Create a folder
 [**createTemplate**](PdfApi.md#createTemplate) | **POST** templates | Upload a new PDF template with a file upload
 [**createTemplateFromUpload**](PdfApi.md#createTemplateFromUpload) | **POST** templates?v&#x3D;2 | Create a new PDF template from a cached presign upload
+[**deleteFolder**](PdfApi.md#deleteFolder) | **DELETE** folders/{folder_id} | Delete a folder
 [**expireCombinedSubmission**](PdfApi.md#expireCombinedSubmission) | **DELETE** combined_submissions/{combined_submission_id} | Expire a combined submission
 [**expireSubmission**](PdfApi.md#expireSubmission) | **DELETE** submissions/{submission_id} | Expire a PDF submission
 [**generatePDF**](PdfApi.md#generatePDF) | **POST** templates/{template_id}/submissions | Generates a new PDF
@@ -20,9 +22,13 @@ Method | HTTP request | Description
 [**getPresignUrl**](PdfApi.md#getPresignUrl) | **GET** uploads/presign | Get a presigned URL so that you can upload a file to our AWS S3 bucket
 [**getSubmission**](PdfApi.md#getSubmission) | **GET** submissions/{submission_id} | Check the status of a PDF
 [**getSubmissionBatch**](PdfApi.md#getSubmissionBatch) | **GET** submissions/batches/{submission_batch_id} | Check the status of a submission batch job
-[**getTemplate**](PdfApi.md#getTemplate) | **GET** templates/{template_id} | Check the status of an uploaded template
+[**getTemplate**](PdfApi.md#getTemplate) | **GET** templates/{template_id} | Get a single template
 [**getTemplateSchema**](PdfApi.md#getTemplateSchema) | **GET** templates/{template_id}/schema | Fetch the JSON schema for a template
+[**listFolders**](PdfApi.md#listFolders) | **GET** folders/ | Get a list of all folders
 [**listTemplates**](PdfApi.md#listTemplates) | **GET** templates | Get a list of all templates
+[**moveFolderToFolder**](PdfApi.md#moveFolderToFolder) | **POST** folders/{folder_id}/move | Move a folder
+[**moveTemplateToFolder**](PdfApi.md#moveTemplateToFolder) | **POST** templates/{template_id}/move | Move Template to folder
+[**renameFolder**](PdfApi.md#renameFolder) | **POST** folders/{folder_id}/rename | Rename a folder
 [**testAuthentication**](PdfApi.md#testAuthentication) | **GET** authentication | Test Authentication
 [**updateDataRequest**](PdfApi.md#updateDataRequest) | **PUT** data_requests/{data_request_id} | Update a submission data request
 
@@ -341,9 +347,61 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="createFolder"></a>
+# **createFolder**
+> Folder createFolder(createFolderData)
+
+Create a folder
+
+### Example
+```java
+// Import classes:
+//import io.formapi.ApiClient;
+//import io.formapi.ApiException;
+//import io.formapi.Configuration;
+//import io.formapi.auth.*;
+//import io.formapi.PdfApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: api_token_basic
+HttpBasicAuth api_token_basic = (HttpBasicAuth) defaultClient.getAuthentication("api_token_basic");
+api_token_basic.setUsername("YOUR USERNAME");
+api_token_basic.setPassword("YOUR PASSWORD");
+
+PdfApi apiInstance = new PdfApi();
+CreateFolderData createFolderData = new CreateFolderData(); // CreateFolderData | 
+try {
+    Folder result = apiInstance.createFolder(createFolderData);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PdfApi#createFolder");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createFolderData** | [**CreateFolderData**](CreateFolderData.md)|  |
+
+### Return type
+
+[**Folder**](Folder.md)
+
+### Authorization
+
+[api_token_basic](../README.md#api_token_basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
 <a name="createTemplate"></a>
 # **createTemplate**
-> PendingTemplate createTemplate(templateDocument, templateName)
+> PendingTemplate createTemplate(templateDocument, templateName, templateParentFolderId)
 
 Upload a new PDF template with a file upload
 
@@ -366,8 +424,9 @@ api_token_basic.setPassword("YOUR PASSWORD");
 PdfApi apiInstance = new PdfApi();
 File templateDocument = new File("null"); // File | 
 String templateName = "null"; // String | 
+String templateParentFolderId = "null"; // String | 
 try {
-    PendingTemplate result = apiInstance.createTemplate(templateDocument, templateName);
+    PendingTemplate result = apiInstance.createTemplate(templateDocument, templateName, templateParentFolderId);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PdfApi#createTemplate");
@@ -381,6 +440,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **templateDocument** | **File**|  | [default to null]
  **templateName** | **String**|  | [default to null]
+ **templateParentFolderId** | **String**|  | [optional] [default to null]
 
 ### Return type
 
@@ -445,6 +505,58 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="deleteFolder"></a>
+# **deleteFolder**
+> Folder deleteFolder(folderId)
+
+Delete a folder
+
+### Example
+```java
+// Import classes:
+//import io.formapi.ApiClient;
+//import io.formapi.ApiException;
+//import io.formapi.Configuration;
+//import io.formapi.auth.*;
+//import io.formapi.PdfApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: api_token_basic
+HttpBasicAuth api_token_basic = (HttpBasicAuth) defaultClient.getAuthentication("api_token_basic");
+api_token_basic.setUsername("YOUR USERNAME");
+api_token_basic.setPassword("YOUR PASSWORD");
+
+PdfApi apiInstance = new PdfApi();
+String folderId = fld_000000000000000001; // String | 
+try {
+    Folder result = apiInstance.deleteFolder(folderId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PdfApi#deleteFolder");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **folderId** | **String**|  |
+
+### Return type
+
+[**Folder**](Folder.md)
+
+### Authorization
+
+[api_token_basic](../README.md#api_token_basic)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 <a name="expireCombinedSubmission"></a>
@@ -869,7 +981,7 @@ Name | Type | Description  | Notes
 # **getTemplate**
 > Template getTemplate(templateId)
 
-Check the status of an uploaded template
+Get a single template
 
 ### Example
 ```java
@@ -888,7 +1000,7 @@ api_token_basic.setUsername("YOUR USERNAME");
 api_token_basic.setPassword("YOUR PASSWORD");
 
 PdfApi apiInstance = new PdfApi();
-String templateId = tpl_000000000000000001; // String | 
+String templateId = tpl_000000000000000011; // String | 
 try {
     Template result = apiInstance.getTemplate(templateId);
     System.out.println(result);
@@ -969,9 +1081,61 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+<a name="listFolders"></a>
+# **listFolders**
+> List&lt;Folder&gt; listFolders(parentFolderId)
+
+Get a list of all folders
+
+### Example
+```java
+// Import classes:
+//import io.formapi.ApiClient;
+//import io.formapi.ApiException;
+//import io.formapi.Configuration;
+//import io.formapi.auth.*;
+//import io.formapi.PdfApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: api_token_basic
+HttpBasicAuth api_token_basic = (HttpBasicAuth) defaultClient.getAuthentication("api_token_basic");
+api_token_basic.setUsername("YOUR USERNAME");
+api_token_basic.setPassword("YOUR PASSWORD");
+
+PdfApi apiInstance = new PdfApi();
+String parentFolderId = fld_000000000000000002; // String | Filter By Folder Id
+try {
+    List<Folder> result = apiInstance.listFolders(parentFolderId);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PdfApi#listFolders");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **parentFolderId** | **String**| Filter By Folder Id | [optional]
+
+### Return type
+
+[**List&lt;Folder&gt;**](Folder.md)
+
+### Authorization
+
+[api_token_basic](../README.md#api_token_basic)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
 <a name="listTemplates"></a>
 # **listTemplates**
-> List&lt;Template&gt; listTemplates(query, page, perPage)
+> List&lt;Template&gt; listTemplates(query, parentFolderId, page, perPage)
 
 Get a list of all templates
 
@@ -993,10 +1157,11 @@ api_token_basic.setPassword("YOUR PASSWORD");
 
 PdfApi apiInstance = new PdfApi();
 String query = 2; // String | Search By Name
+String parentFolderId = fld_000000000000000001; // String | Filter By Folder Id
 Integer page = 2; // Integer | Default: 1
 Integer perPage = 1; // Integer | Default: 50
 try {
-    List<Template> result = apiInstance.listTemplates(query, page, perPage);
+    List<Template> result = apiInstance.listTemplates(query, parentFolderId, page, perPage);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling PdfApi#listTemplates");
@@ -1009,6 +1174,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **query** | **String**| Search By Name | [optional]
+ **parentFolderId** | **String**| Filter By Folder Id | [optional]
  **page** | **Integer**| Default: 1 | [optional]
  **perPage** | **Integer**| Default: 50 | [optional]
 
@@ -1023,6 +1189,167 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="moveFolderToFolder"></a>
+# **moveFolderToFolder**
+> Folder moveFolderToFolder(folderId, moveFolderData)
+
+Move a folder
+
+### Example
+```java
+// Import classes:
+//import io.formapi.ApiClient;
+//import io.formapi.ApiException;
+//import io.formapi.Configuration;
+//import io.formapi.auth.*;
+//import io.formapi.PdfApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: api_token_basic
+HttpBasicAuth api_token_basic = (HttpBasicAuth) defaultClient.getAuthentication("api_token_basic");
+api_token_basic.setUsername("YOUR USERNAME");
+api_token_basic.setPassword("YOUR PASSWORD");
+
+PdfApi apiInstance = new PdfApi();
+String folderId = fld_000000000000000001; // String | 
+MoveFolderData moveFolderData = new MoveFolderData(); // MoveFolderData | 
+try {
+    Folder result = apiInstance.moveFolderToFolder(folderId, moveFolderData);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PdfApi#moveFolderToFolder");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **folderId** | **String**|  |
+ **moveFolderData** | [**MoveFolderData**](MoveFolderData.md)|  |
+
+### Return type
+
+[**Folder**](Folder.md)
+
+### Authorization
+
+[api_token_basic](../README.md#api_token_basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="moveTemplateToFolder"></a>
+# **moveTemplateToFolder**
+> Template moveTemplateToFolder(templateId, moveTemplateData)
+
+Move Template to folder
+
+### Example
+```java
+// Import classes:
+//import io.formapi.ApiClient;
+//import io.formapi.ApiException;
+//import io.formapi.Configuration;
+//import io.formapi.auth.*;
+//import io.formapi.PdfApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: api_token_basic
+HttpBasicAuth api_token_basic = (HttpBasicAuth) defaultClient.getAuthentication("api_token_basic");
+api_token_basic.setUsername("YOUR USERNAME");
+api_token_basic.setPassword("YOUR PASSWORD");
+
+PdfApi apiInstance = new PdfApi();
+String templateId = tpl_000000000000000001; // String | 
+MoveTemplateData moveTemplateData = new MoveTemplateData(); // MoveTemplateData | 
+try {
+    Template result = apiInstance.moveTemplateToFolder(templateId, moveTemplateData);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PdfApi#moveTemplateToFolder");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **templateId** | **String**|  |
+ **moveTemplateData** | [**MoveTemplateData**](MoveTemplateData.md)|  |
+
+### Return type
+
+[**Template**](Template.md)
+
+### Authorization
+
+[api_token_basic](../README.md#api_token_basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+<a name="renameFolder"></a>
+# **renameFolder**
+> renameFolder(folderId, renameFolderData)
+
+Rename a folder
+
+### Example
+```java
+// Import classes:
+//import io.formapi.ApiClient;
+//import io.formapi.ApiException;
+//import io.formapi.Configuration;
+//import io.formapi.auth.*;
+//import io.formapi.PdfApi;
+
+ApiClient defaultClient = Configuration.getDefaultApiClient();
+
+// Configure HTTP basic authorization: api_token_basic
+HttpBasicAuth api_token_basic = (HttpBasicAuth) defaultClient.getAuthentication("api_token_basic");
+api_token_basic.setUsername("YOUR USERNAME");
+api_token_basic.setPassword("YOUR PASSWORD");
+
+PdfApi apiInstance = new PdfApi();
+String folderId = fld_000000000000000001; // String | 
+RenameFolderData renameFolderData = new RenameFolderData(); // RenameFolderData | 
+try {
+    apiInstance.renameFolder(folderId, renameFolderData);
+} catch (ApiException e) {
+    System.err.println("Exception when calling PdfApi#renameFolder");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **folderId** | **String**|  |
+ **renameFolderData** | [**RenameFolderData**](RenameFolderData.md)|  |
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+[api_token_basic](../README.md#api_token_basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 <a name="testAuthentication"></a>

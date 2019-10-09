@@ -9,14 +9,19 @@ import io.formapi.CombinedSubmissionData;
 import io.formapi.CreateCombinedSubmissionResponse;
 import io.formapi.CreateCustomFileData;
 import io.formapi.CreateCustomFileResponse;
+import io.formapi.CreateFolderData;
 import io.formapi.CreateSubmissionBatchResponse;
 import io.formapi.CreateSubmissionDataRequestTokenResponse;
 import io.formapi.CreateSubmissionResponse;
 import io.formapi.CreateTemplateData;
 import io.formapi.Error;
 import java.io.File;
+import io.formapi.Folder;
 import io.formapi.InvalidRequest;
+import io.formapi.MoveFolderData;
+import io.formapi.MoveTemplateData;
 import io.formapi.PendingTemplate;
+import io.formapi.RenameFolderData;
 import io.formapi.Submission;
 import io.formapi.SubmissionBatch;
 import io.formapi.SubmissionBatchData;
@@ -119,6 +124,18 @@ public class PdfApiTest {
         // TODO: test validations
     }
     /**
+     * Create a folder
+     *
+     * 
+     */
+    @Test
+    public void createFolderTest() {
+        CreateFolderData createFolderData = null;
+        // Folder response = api.createFolder(createFolderData);
+
+        // TODO: test validations
+    }
+    /**
      * Upload a new PDF template with a file upload
      *
      * 
@@ -127,7 +144,8 @@ public class PdfApiTest {
     public void createTemplateTest() {
         File templateDocument = null;
         String templateName = null;
-        // PendingTemplate response = api.createTemplate(templateDocument, templateName);
+        String templateParentFolderId = null;
+        // PendingTemplate response = api.createTemplate(templateDocument, templateName, templateParentFolderId);
 
         // TODO: test validations
     }
@@ -140,6 +158,18 @@ public class PdfApiTest {
     public void createTemplateFromUploadTest() {
         CreateTemplateData createTemplateData = null;
         // PendingTemplate response = api.createTemplateFromUpload(createTemplateData);
+
+        // TODO: test validations
+    }
+    /**
+     * Delete a folder
+     *
+     * 
+     */
+    @Test
+    public void deleteFolderTest() {
+        String folderId = null;
+        // Folder response = api.deleteFolder(folderId);
 
         // TODO: test validations
     }
@@ -242,7 +272,7 @@ public class PdfApiTest {
         // TODO: test validations
     }
     /**
-     * Check the status of an uploaded template
+     * Get a single template
      *
      * 
      */
@@ -266,6 +296,18 @@ public class PdfApiTest {
         // TODO: test validations
     }
     /**
+     * Get a list of all folders
+     *
+     * 
+     */
+    @Test
+    public void listFoldersTest() {
+        String parentFolderId = null;
+        // List<Folder> response = api.listFolders(parentFolderId);
+
+        // TODO: test validations
+    }
+    /**
      * Get a list of all templates
      *
      * 
@@ -273,9 +315,49 @@ public class PdfApiTest {
     @Test
     public void listTemplatesTest() {
         String query = null;
+        String parentFolderId = null;
         Integer page = null;
         Integer perPage = null;
-        // List<Template> response = api.listTemplates(query, page, perPage);
+        // List<Template> response = api.listTemplates(query, parentFolderId, page, perPage);
+
+        // TODO: test validations
+    }
+    /**
+     * Move a folder
+     *
+     * 
+     */
+    @Test
+    public void moveFolderToFolderTest() {
+        String folderId = null;
+        MoveFolderData moveFolderData = null;
+        // Folder response = api.moveFolderToFolder(folderId, moveFolderData);
+
+        // TODO: test validations
+    }
+    /**
+     * Move Template to folder
+     *
+     * 
+     */
+    @Test
+    public void moveTemplateToFolderTest() {
+        String templateId = null;
+        MoveTemplateData moveTemplateData = null;
+        // Template response = api.moveTemplateToFolder(templateId, moveTemplateData);
+
+        // TODO: test validations
+    }
+    /**
+     * Rename a folder
+     *
+     * 
+     */
+    @Test
+    public void renameFolderTest() {
+        String folderId = null;
+        RenameFolderData renameFolderData = null;
+        // api.renameFolder(folderId, renameFolderData);
 
         // TODO: test validations
     }

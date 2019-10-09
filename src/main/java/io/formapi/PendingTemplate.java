@@ -28,7 +28,7 @@ import java.math.BigDecimal;
 /**
  * PendingTemplate
  */
-@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2019-06-22T05:53:05.221+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2019-10-10T00:08:57.730+07:00[Asia/Bangkok]")
 public class PendingTemplate {
   /**
    * Gets or Sets expirationInterval
@@ -87,6 +87,10 @@ public class PendingTemplate {
   @SerializedName(SERIALIZED_NAME_WEBHOOK_URL)
   private String webhookUrl = null;
 
+  public static final String SERIALIZED_NAME_PARENT_FOLDER_ID = "parent_folder_id";
+  @SerializedName(SERIALIZED_NAME_PARENT_FOLDER_ID)
+  private String parentFolderId = null;
+
   public static final String SERIALIZED_NAME_EXPIRE_AFTER = "expire_after";
   @SerializedName(SERIALIZED_NAME_EXPIRE_AFTER)
   private BigDecimal expireAfter = null;
@@ -102,6 +106,10 @@ public class PendingTemplate {
   public static final String SERIALIZED_NAME_SLACK_WEBHOOK_URL = "slack_webhook_url";
   @SerializedName(SERIALIZED_NAME_SLACK_WEBHOOK_URL)
   private String slackWebhookUrl = null;
+
+  public static final String SERIALIZED_NAME_PATH = "path";
+  @SerializedName(SERIALIZED_NAME_PATH)
+  private String path = null;
 
   public static final String SERIALIZED_NAME_PUBLIC_WEB_FORM = "public_web_form";
   @SerializedName(SERIALIZED_NAME_PUBLIC_WEB_FORM)
@@ -165,6 +173,24 @@ public class PendingTemplate {
 
   public void setWebhookUrl(String webhookUrl) {
     this.webhookUrl = webhookUrl;
+  }
+
+  public PendingTemplate parentFolderId(String parentFolderId) {
+    this.parentFolderId = parentFolderId;
+    return this;
+  }
+
+   /**
+   * Get parentFolderId
+   * @return parentFolderId
+  **/
+  @ApiModelProperty(value = "")
+  public String getParentFolderId() {
+    return parentFolderId;
+  }
+
+  public void setParentFolderId(String parentFolderId) {
+    this.parentFolderId = parentFolderId;
   }
 
   public PendingTemplate expireAfter(BigDecimal expireAfter) {
@@ -237,6 +263,24 @@ public class PendingTemplate {
 
   public void setSlackWebhookUrl(String slackWebhookUrl) {
     this.slackWebhookUrl = slackWebhookUrl;
+  }
+
+  public PendingTemplate path(String path) {
+    this.path = path;
+    return this;
+  }
+
+   /**
+   * Get path
+   * @return path
+  **/
+  @ApiModelProperty(value = "")
+  public String getPath() {
+    return path;
+  }
+
+  public void setPath(String path) {
+    this.path = path;
   }
 
   public PendingTemplate publicWebForm(Boolean publicWebForm) {
@@ -377,10 +421,12 @@ public class PendingTemplate {
     PendingTemplate pendingTemplate = (PendingTemplate) o;
     return Objects.equals(this.expirationInterval, pendingTemplate.expirationInterval) &&
         Objects.equals(this.webhookUrl, pendingTemplate.webhookUrl) &&
+        Objects.equals(this.parentFolderId, pendingTemplate.parentFolderId) &&
         Objects.equals(this.expireAfter, pendingTemplate.expireAfter) &&
         Objects.equals(this.allowAdditionalProperties, pendingTemplate.allowAdditionalProperties) &&
         Objects.equals(this.publicSubmissions, pendingTemplate.publicSubmissions) &&
         Objects.equals(this.slackWebhookUrl, pendingTemplate.slackWebhookUrl) &&
+        Objects.equals(this.path, pendingTemplate.path) &&
         Objects.equals(this.publicWebForm, pendingTemplate.publicWebForm) &&
         Objects.equals(this.editableSubmissions, pendingTemplate.editableSubmissions) &&
         Objects.equals(this.expireSubmissions, pendingTemplate.expireSubmissions) &&
@@ -392,7 +438,7 @@ public class PendingTemplate {
 
   @Override
   public int hashCode() {
-    return Objects.hash(expirationInterval, webhookUrl, expireAfter, allowAdditionalProperties, publicSubmissions, slackWebhookUrl, publicWebForm, editableSubmissions, expireSubmissions, name, templateType, id, redirectUrl);
+    return Objects.hash(expirationInterval, webhookUrl, parentFolderId, expireAfter, allowAdditionalProperties, publicSubmissions, slackWebhookUrl, path, publicWebForm, editableSubmissions, expireSubmissions, name, templateType, id, redirectUrl);
   }
 
 
@@ -403,10 +449,12 @@ public class PendingTemplate {
     
     sb.append("    expirationInterval: ").append(toIndentedString(expirationInterval)).append("\n");
     sb.append("    webhookUrl: ").append(toIndentedString(webhookUrl)).append("\n");
+    sb.append("    parentFolderId: ").append(toIndentedString(parentFolderId)).append("\n");
     sb.append("    expireAfter: ").append(toIndentedString(expireAfter)).append("\n");
     sb.append("    allowAdditionalProperties: ").append(toIndentedString(allowAdditionalProperties)).append("\n");
     sb.append("    publicSubmissions: ").append(toIndentedString(publicSubmissions)).append("\n");
     sb.append("    slackWebhookUrl: ").append(toIndentedString(slackWebhookUrl)).append("\n");
+    sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    publicWebForm: ").append(toIndentedString(publicWebForm)).append("\n");
     sb.append("    editableSubmissions: ").append(toIndentedString(editableSubmissions)).append("\n");
     sb.append("    expireSubmissions: ").append(toIndentedString(expireSubmissions)).append("\n");

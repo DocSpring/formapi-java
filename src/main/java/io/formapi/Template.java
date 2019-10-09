@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * Template
  */
-@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2019-06-22T05:53:05.221+07:00[Asia/Bangkok]")
+@javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2019-10-10T00:08:57.730+07:00[Asia/Bangkok]")
 public class Template {
   /**
    * Gets or Sets expirationInterval
@@ -89,6 +89,10 @@ public class Template {
   @SerializedName(SERIALIZED_NAME_WEBHOOK_URL)
   private String webhookUrl = null;
 
+  public static final String SERIALIZED_NAME_PARENT_FOLDER_ID = "parent_folder_id";
+  @SerializedName(SERIALIZED_NAME_PARENT_FOLDER_ID)
+  private String parentFolderId = null;
+
   public static final String SERIALIZED_NAME_EXPIRE_AFTER = "expire_after";
   @SerializedName(SERIALIZED_NAME_EXPIRE_AFTER)
   private BigDecimal expireAfter = null;
@@ -104,6 +108,10 @@ public class Template {
   public static final String SERIALIZED_NAME_SLACK_WEBHOOK_URL = "slack_webhook_url";
   @SerializedName(SERIALIZED_NAME_SLACK_WEBHOOK_URL)
   private String slackWebhookUrl = null;
+
+  public static final String SERIALIZED_NAME_PATH = "path";
+  @SerializedName(SERIALIZED_NAME_PATH)
+  private String path = null;
 
   public static final String SERIALIZED_NAME_PUBLIC_WEB_FORM = "public_web_form";
   @SerializedName(SERIALIZED_NAME_PUBLIC_WEB_FORM)
@@ -121,6 +129,10 @@ public class Template {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name = null;
 
+  public static final String SERIALIZED_NAME_PERMANENT_DOCUMENT_URL = "permanent_document_url";
+  @SerializedName(SERIALIZED_NAME_PERMANENT_DOCUMENT_URL)
+  private String permanentDocumentUrl = null;
+
   public static final String SERIALIZED_NAME_TEMPLATE_TYPE = "template_type";
   @SerializedName(SERIALIZED_NAME_TEMPLATE_TYPE)
   private String templateType = null;
@@ -136,6 +148,10 @@ public class Template {
   public static final String SERIALIZED_NAME_REDIRECT_URL = "redirect_url";
   @SerializedName(SERIALIZED_NAME_REDIRECT_URL)
   private String redirectUrl = null;
+
+  public static final String SERIALIZED_NAME_DOCUMENT_URL = "document_url";
+  @SerializedName(SERIALIZED_NAME_DOCUMENT_URL)
+  private String documentUrl = null;
 
   public Template expirationInterval(ExpirationIntervalEnum expirationInterval) {
     this.expirationInterval = expirationInterval;
@@ -171,6 +187,24 @@ public class Template {
 
   public void setWebhookUrl(String webhookUrl) {
     this.webhookUrl = webhookUrl;
+  }
+
+  public Template parentFolderId(String parentFolderId) {
+    this.parentFolderId = parentFolderId;
+    return this;
+  }
+
+   /**
+   * Get parentFolderId
+   * @return parentFolderId
+  **/
+  @ApiModelProperty(value = "")
+  public String getParentFolderId() {
+    return parentFolderId;
+  }
+
+  public void setParentFolderId(String parentFolderId) {
+    this.parentFolderId = parentFolderId;
   }
 
   public Template expireAfter(BigDecimal expireAfter) {
@@ -245,6 +279,24 @@ public class Template {
     this.slackWebhookUrl = slackWebhookUrl;
   }
 
+  public Template path(String path) {
+    this.path = path;
+    return this;
+  }
+
+   /**
+   * Get path
+   * @return path
+  **/
+  @ApiModelProperty(value = "")
+  public String getPath() {
+    return path;
+  }
+
+  public void setPath(String path) {
+    this.path = path;
+  }
+
   public Template publicWebForm(Boolean publicWebForm) {
     this.publicWebForm = publicWebForm;
     return this;
@@ -315,6 +367,24 @@ public class Template {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public Template permanentDocumentUrl(String permanentDocumentUrl) {
+    this.permanentDocumentUrl = permanentDocumentUrl;
+    return this;
+  }
+
+   /**
+   * Get permanentDocumentUrl
+   * @return permanentDocumentUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getPermanentDocumentUrl() {
+    return permanentDocumentUrl;
+  }
+
+  public void setPermanentDocumentUrl(String permanentDocumentUrl) {
+    this.permanentDocumentUrl = permanentDocumentUrl;
   }
 
   public Template templateType(String templateType) {
@@ -397,6 +467,24 @@ public class Template {
     this.redirectUrl = redirectUrl;
   }
 
+  public Template documentUrl(String documentUrl) {
+    this.documentUrl = documentUrl;
+    return this;
+  }
+
+   /**
+   * Get documentUrl
+   * @return documentUrl
+  **/
+  @ApiModelProperty(value = "")
+  public String getDocumentUrl() {
+    return documentUrl;
+  }
+
+  public void setDocumentUrl(String documentUrl) {
+    this.documentUrl = documentUrl;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -409,23 +497,27 @@ public class Template {
     Template template = (Template) o;
     return Objects.equals(this.expirationInterval, template.expirationInterval) &&
         Objects.equals(this.webhookUrl, template.webhookUrl) &&
+        Objects.equals(this.parentFolderId, template.parentFolderId) &&
         Objects.equals(this.expireAfter, template.expireAfter) &&
         Objects.equals(this.allowAdditionalProperties, template.allowAdditionalProperties) &&
         Objects.equals(this.publicSubmissions, template.publicSubmissions) &&
         Objects.equals(this.slackWebhookUrl, template.slackWebhookUrl) &&
+        Objects.equals(this.path, template.path) &&
         Objects.equals(this.publicWebForm, template.publicWebForm) &&
         Objects.equals(this.editableSubmissions, template.editableSubmissions) &&
         Objects.equals(this.expireSubmissions, template.expireSubmissions) &&
         Objects.equals(this.name, template.name) &&
+        Objects.equals(this.permanentDocumentUrl, template.permanentDocumentUrl) &&
         Objects.equals(this.templateType, template.templateType) &&
         Objects.equals(this.id, template.id) &&
         Objects.equals(this.pageDimensions, template.pageDimensions) &&
-        Objects.equals(this.redirectUrl, template.redirectUrl);
+        Objects.equals(this.redirectUrl, template.redirectUrl) &&
+        Objects.equals(this.documentUrl, template.documentUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(expirationInterval, webhookUrl, expireAfter, allowAdditionalProperties, publicSubmissions, slackWebhookUrl, publicWebForm, editableSubmissions, expireSubmissions, name, templateType, id, pageDimensions, redirectUrl);
+    return Objects.hash(expirationInterval, webhookUrl, parentFolderId, expireAfter, allowAdditionalProperties, publicSubmissions, slackWebhookUrl, path, publicWebForm, editableSubmissions, expireSubmissions, name, permanentDocumentUrl, templateType, id, pageDimensions, redirectUrl, documentUrl);
   }
 
 
@@ -436,18 +528,22 @@ public class Template {
     
     sb.append("    expirationInterval: ").append(toIndentedString(expirationInterval)).append("\n");
     sb.append("    webhookUrl: ").append(toIndentedString(webhookUrl)).append("\n");
+    sb.append("    parentFolderId: ").append(toIndentedString(parentFolderId)).append("\n");
     sb.append("    expireAfter: ").append(toIndentedString(expireAfter)).append("\n");
     sb.append("    allowAdditionalProperties: ").append(toIndentedString(allowAdditionalProperties)).append("\n");
     sb.append("    publicSubmissions: ").append(toIndentedString(publicSubmissions)).append("\n");
     sb.append("    slackWebhookUrl: ").append(toIndentedString(slackWebhookUrl)).append("\n");
+    sb.append("    path: ").append(toIndentedString(path)).append("\n");
     sb.append("    publicWebForm: ").append(toIndentedString(publicWebForm)).append("\n");
     sb.append("    editableSubmissions: ").append(toIndentedString(editableSubmissions)).append("\n");
     sb.append("    expireSubmissions: ").append(toIndentedString(expireSubmissions)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    permanentDocumentUrl: ").append(toIndentedString(permanentDocumentUrl)).append("\n");
     sb.append("    templateType: ").append(toIndentedString(templateType)).append("\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    pageDimensions: ").append(toIndentedString(pageDimensions)).append("\n");
     sb.append("    redirectUrl: ").append(toIndentedString(redirectUrl)).append("\n");
+    sb.append("    documentUrl: ").append(toIndentedString(documentUrl)).append("\n");
     sb.append("}");
     return sb.toString();
   }

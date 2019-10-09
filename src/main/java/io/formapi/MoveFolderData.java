@@ -25,52 +25,30 @@ import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 
 /**
- * CustomFile
+ * MoveFolderData
  */
 @javax.annotation.Generated(value = "io.formapi.codegen.FormApiJavaClientCodegen", date = "2019-10-10T00:08:57.730+07:00[Asia/Bangkok]")
-public class CustomFile {
-  public static final String SERIALIZED_NAME_ID = "id";
-  @SerializedName(SERIALIZED_NAME_ID)
-  private String id = null;
+public class MoveFolderData {
+  public static final String SERIALIZED_NAME_PARENT_FOLDER_ID = "parent_folder_id";
+  @SerializedName(SERIALIZED_NAME_PARENT_FOLDER_ID)
+  private String parentFolderId = null;
 
-  public static final String SERIALIZED_NAME_URL = "url";
-  @SerializedName(SERIALIZED_NAME_URL)
-  private String url = null;
-
-  public CustomFile id(String id) {
-    this.id = id;
+  public MoveFolderData parentFolderId(String parentFolderId) {
+    this.parentFolderId = parentFolderId;
     return this;
   }
 
    /**
-   * Get id
-   * @return id
+   * Get parentFolderId
+   * @return parentFolderId
   **/
   @ApiModelProperty(value = "")
-  public String getId() {
-    return id;
+  public String getParentFolderId() {
+    return parentFolderId;
   }
 
-  public void setId(String id) {
-    this.id = id;
-  }
-
-  public CustomFile url(String url) {
-    this.url = url;
-    return this;
-  }
-
-   /**
-   * Get url
-   * @return url
-  **/
-  @ApiModelProperty(value = "")
-  public String getUrl() {
-    return url;
-  }
-
-  public void setUrl(String url) {
-    this.url = url;
+  public void setParentFolderId(String parentFolderId) {
+    this.parentFolderId = parentFolderId;
   }
 
 
@@ -82,24 +60,22 @@ public class CustomFile {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    CustomFile customFile = (CustomFile) o;
-    return Objects.equals(this.id, customFile.id) &&
-        Objects.equals(this.url, customFile.url);
+    MoveFolderData moveFolderData = (MoveFolderData) o;
+    return Objects.equals(this.parentFolderId, moveFolderData.parentFolderId);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, url);
+    return Objects.hash(parentFolderId);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class CustomFile {\n");
+    sb.append("class MoveFolderData {\n");
     
-    sb.append("    id: ").append(toIndentedString(id)).append("\n");
-    sb.append("    url: ").append(toIndentedString(url)).append("\n");
+    sb.append("    parentFolderId: ").append(toIndentedString(parentFolderId)).append("\n");
     sb.append("}");
     return sb.toString();
   }

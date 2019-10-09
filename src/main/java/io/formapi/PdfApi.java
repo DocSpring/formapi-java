@@ -17,14 +17,19 @@ import io.formapi.CombinedSubmissionData;
 import io.formapi.CreateCombinedSubmissionResponse;
 import io.formapi.CreateCustomFileData;
 import io.formapi.CreateCustomFileResponse;
+import io.formapi.CreateFolderData;
 import io.formapi.CreateSubmissionBatchResponse;
 import io.formapi.CreateSubmissionDataRequestTokenResponse;
 import io.formapi.CreateSubmissionResponse;
 import io.formapi.CreateTemplateData;
 import io.formapi.Error;
 import java.io.File;
+import io.formapi.Folder;
 import io.formapi.InvalidRequest;
+import io.formapi.MoveFolderData;
+import io.formapi.MoveTemplateData;
 import io.formapi.PendingTemplate;
+import io.formapi.RenameFolderData;
 import io.formapi.Submission;
 import io.formapi.SubmissionBatch;
 import io.formapi.SubmissionBatchData;
@@ -123,16 +128,31 @@ public interface PdfApi {
   );
 
   /**
+   * Create a folder
+   * 
+   * @param createFolderData  (required)
+   * @return Call&lt;Folder&gt;
+   */
+  @Headers({
+    "Content-Type:application/json"
+  })
+  @POST("folders/")
+  Call<Folder> createFolder(
+    @retrofit2.http.Body CreateFolderData createFolderData
+  );
+
+  /**
    * Upload a new PDF template with a file upload
    * 
    * @param templateDocument  (required)
    * @param templateName  (required)
+   * @param templateParentFolderId  (optional, default to null)
    * @return Call&lt;PendingTemplate&gt;
    */
   @retrofit2.http.Multipart
   @POST("templates")
   Call<PendingTemplate> createTemplate(
-    @retrofit2.http.Part("template[document]") MultipartBody.Part templateDocument, @retrofit2.http.Part("template[name]") String templateName
+    @retrofit2.http.Part("template[document]") MultipartBody.Part templateDocument, @retrofit2.http.Part("template[name]") String templateName, @retrofit2.http.Part("template[parent_folder_id]") String templateParentFolderId
   );
 
   /**
@@ -147,6 +167,17 @@ public interface PdfApi {
   @POST("templates?v=2")
   Call<PendingTemplate> createTemplateFromUpload(
     @retrofit2.http.Body CreateTemplateData createTemplateData
+  );
+
+  /**
+   * Delete a folder
+   * 
+   * @param folderId  (required)
+   * @return Call&lt;Folder&gt;
+   */
+  @DELETE("folders/{folder_id}")
+  Call<Folder> deleteFolder(
+    @retrofit2.http.Path("folder_id") String folderId
   );
 
   /**
@@ -242,7 +273,7 @@ public interface PdfApi {
   );
 
   /**
-   * Check the status of an uploaded template
+   * Get a single template
    * 
    * @param templateId  (required)
    * @return Call&lt;Template&gt;
@@ -264,16 +295,73 @@ public interface PdfApi {
   );
 
   /**
+   * Get a list of all folders
+   * 
+   * @param parentFolderId Filter By Folder Id (optional)
+   * @return Call&lt;List&lt;Folder&gt;&gt;
+   */
+  @GET("folders/")
+  Call<List<Folder>> listFolders(
+    @retrofit2.http.Query("parent_folder_id") String parentFolderId
+  );
+
+  /**
    * Get a list of all templates
    * 
    * @param query Search By Name (optional)
+   * @param parentFolderId Filter By Folder Id (optional)
    * @param page Default: 1 (optional)
    * @param perPage Default: 50 (optional)
    * @return Call&lt;List&lt;Template&gt;&gt;
    */
   @GET("templates")
   Call<List<Template>> listTemplates(
-    @retrofit2.http.Query("query") String query, @retrofit2.http.Query("page") Integer page, @retrofit2.http.Query("per_page") Integer perPage
+    @retrofit2.http.Query("query") String query, @retrofit2.http.Query("parent_folder_id") String parentFolderId, @retrofit2.http.Query("page") Integer page, @retrofit2.http.Query("per_page") Integer perPage
+  );
+
+  /**
+   * Move a folder
+   * 
+   * @param folderId  (required)
+   * @param moveFolderData  (required)
+   * @return Call&lt;Folder&gt;
+   */
+  @Headers({
+    "Content-Type:application/json"
+  })
+  @POST("folders/{folder_id}/move")
+  Call<Folder> moveFolderToFolder(
+    @retrofit2.http.Path("folder_id") String folderId, @retrofit2.http.Body MoveFolderData moveFolderData
+  );
+
+  /**
+   * Move Template to folder
+   * 
+   * @param templateId  (required)
+   * @param moveTemplateData  (required)
+   * @return Call&lt;Template&gt;
+   */
+  @Headers({
+    "Content-Type:application/json"
+  })
+  @POST("templates/{template_id}/move")
+  Call<Template> moveTemplateToFolder(
+    @retrofit2.http.Path("template_id") String templateId, @retrofit2.http.Body MoveTemplateData moveTemplateData
+  );
+
+  /**
+   * Rename a folder
+   * 
+   * @param folderId  (required)
+   * @param renameFolderData  (required)
+   * @return Call&lt;Void&gt;
+   */
+  @Headers({
+    "Content-Type:application/json"
+  })
+  @POST("folders/{folder_id}/rename")
+  Call<Void> renameFolder(
+    @retrofit2.http.Path("folder_id") String folderId, @retrofit2.http.Body RenameFolderData renameFolderData
   );
 
   /**
